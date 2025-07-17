@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Tamil Memes </title>
+    <link rel="stylesheet" href="style.css">
+    <link  rel="icon"  href="icon.ico">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    </head>
+      <body style="background-color: hsl(25, 100%, 96%);">
+        <header>
+          <div>
+            <img class="logo" src="icon.jpg" width="100">
+          </div>
+            <h1 class="title">Youtuber<br> Memes</h1>
+          <div class="search-container">
+          <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search memes..." />
+            <button type="button">Search</button>
+          </div>
+          </div>
+            
+        </header>
+        <marquee class="marq">Search categories in the Menu bar </marquee>
+           <button class="open-btn" onclick="toggleSidebar()">☰ Menu</button>
+
+  <div class="sidebar" id="sidebar">
+     <a href="index.html">Home</a>
+    <a href="vadivel.html">Vadivelu memes</a>
+    <a href="youtuber.html">Youtuber memes</a>
+    <a href="abroad.html">Abroad movies</a>
+    <a href="tamil.html">Tamil movies</a>
+  </div>
+    <div class="results" id="resultList">
+        <center>
+            <div class="o">
+            <video src="apavi.mp4"  controls=""  class="video"></video>
+            <h3>apavi maari dialogue JK-template</h3>
+            <a href="apavi.mp4" download="Tamil-memes-apavi dialogue JK"><button class="down">Download</button></a>
+        </div>
+                <div class="o">
+            <video src="avananiruthu.mp4"  controls=""  class="video"></video>
+            <h3>avana solli niruthungada sudhagar-tamil meme template</h3>
+            <a href="avananiruthu.mp4" download="Tamil-memes-avanasolli dialogue vadivelu"><button class="down">Download</button></a>
+        </div>
+                   <div class="o">
+            <video src="paithiyam.mp4" class="video"  controls=""></video>
+            <h3>paithiyamada neenga-template</h3>
+            <a href="paithiyam.mp4" download="Tamil-memes-paithiyamada neenga"><button class="down">Download</button></a>
+        </div>
+        <div class="o">
+            <video src="roombu.mp4" class="video"  controls=""></video>
+            <h3>roombu GP muthu-template</h3>
+            <a href="roombu.mp4" download="Tamil-memes-roombu dialogue GP muthu"><button class="down">Download</button></a>
+        </div> 
+                 <div class="o">
+            <video src="vanmam.mp4" class="video"  controls=""></video>
+            <h3>poraama padraanunga-sudhagar- template</h3>
+            <a href="vanmam.mp4" download="Tamil-memes-poraama padraanunga"><button class="down">Download</button></a>
+        </div>
+        <div class="o">
+            <video src="Varta.mp4" class="video"  controls=""></video>
+            <h3>varta maame durr JK- tamil template</h3>
+            <a href="Varta.mp4" download="Tamil-memes-varte maame durrr"><button class="down">Download</button></a>
+        </div>
+                  <div class="o">
+            <video src="yen.mp4" class="video"  controls=""></video>
+            <h3>yaan yaan meme- tamil template</h3>
+            <a href="yen.mp4" download="Tamil-memes-yaan yaan meme"><button class="down">Download</button></a>
+        </div>
+        <div class="o">
+            <video src="yenga.mp4" class="video"  controls=""></video>
+            <h3>yengaa meme- tamil template</h3>
+            <a href="yenga.mp4" download="Tamil-memes-yengaaa meme"><button class="down">Download</button></a>
+        </div>
+         <div class="para">
+        <p>Disclaimer:Copyright Disclaimer under section of 107 of the copyright act 1976 ,allowance is made for "fair use"for purposes such as criticism ,commenting,news reporting,teaching,scholarship,and research .Fair use is a use permitted by copyright statue that might otherwise be infringing .Non-profit,educational or personal use tips the balance in favor of fair use. If you would like to remove any movie clip i have used in this website,send a email to<mark> jayasuryam368@gmail.com </mark>and your clips will be removed immediately</p>
+      </div>
+        </center>
+  <script>
+     function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+      document.getElementById('mainContent').classList.toggle('shift');
+    }
+
+    const searchInput = document.getElementById("searchInput");
+    const resultList = document.getElementById("resultList");
+    const items = resultList.getElementsByTagName("div");
+
+    searchInput.addEventListener("keyup", function() {
+      const filter = searchInput.value.toLowerCase();
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(filter) ? "" : "none";
+      }
+    });
+  </script>
+   </body>
+
+      
