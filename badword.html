@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Tamil Memes </title>
+    <link rel="stylesheet" href="style.css">
+    <link  rel="icon"  href="icon.ico">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    </head>
+      <body style="background-color: hsl(25, 100%, 96%);">
+        <header>
+          <div>
+            <img class="logo" src="icon.jpg" width="100">
+          </div>
+            <h1 class="title">Vadivel<br> Memes</h1>
+          <div class="search-container">
+          <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search memes..." />
+            <button type="button">Search</button>
+          </div>
+          </div>
+            
+        </header>
+        <marquee class="marq">Search categories in the Menu bar </marquee>
+           <button class="open-btn" onclick="toggleSidebar()">☰ Menu</button>
+
+  <div class="sidebar" id="sidebar">
+     <a href="index.html">Home</a>
+    <a href="vadivel.html">Vadivelu memes</a>
+    <a href="youtuber.html">Youtuber memes</a>
+    <a href="abroad.html">Abroad movies</a>
+    <a href="tamil.html">Tamil movies</a>
+  </div>
+    <div class="results" id="resultList">
+        <center>
+            <div class="o">
+           <iframe src="https://drive.google.com/file/d/1g1Cw_dRBE-mr37uChQYVLKECU3J-L5tf/preview" class="video" controls=""></iframe>
+            <h3>Adangommala dialogue-tamil meme template</h3>
+            <a href="https://drive.google.com/u/0/uc?id=1g1Cw_dRBE-mr37uChQYVLKECU3J-L5tf&export=download" download="Tamil-memes-adangommala"><button class="down">Download</button></a>
+         </div>
+          <div class="o">
+           <iframe src="https://drive.google.com/file/d/16dOCxKYSaBuGarkRL5f7Z3oZCBSZ0Aew/preview" class="video" controls=""></iframe>
+            <h3>Dei loosu funda poda-tamil meme template</h3>
+            <a href="https://drive.google.com/u/0/uc?id=16dOCxKYSaBuGarkRL5f7Z3oZCBSZ0Aew&export=download" download="Tamil-memes-Dei loosu funda"><button class="down">Download</button></a>
+        </div>
+        <div class="o">
+           <iframe src="https://drive.google.com/file/d/1Xo4ZqcAhp0o9n0lU4ilfIp13HgzxPiq4/preview" class="video" controls=""></iframe>
+            <h3>kadha kekka readyada-template</h3>
+            <a href="https://drive.google.com/u/0/uc?id=1Xo4ZqcAhp0o9n0lU4ilfIp13HgzxPiq4&export=download" download="Tamil-memes-kadha kekka readya da"><button class="down">Download</button></a>
+        </div>
+         <div class="o">
+          <iframe src="https://drive.google.com/file/d/1hhhWFdFBXEYFJY0ki90-dpsaOJtROue7/preview" class="video" controls=""></iframe>
+            <h3>moonja soothla vitta maathir-template</h3>
+            <a href="https://drive.google.com/u/0/uc?id=1hhhWFdFBXEYFJY0ki90-dpsaOJtROue7&export=download" download="Tamil-memes-moonja soothla vitta"><button class="down">Download</button></a>
+        </div>
+         <div class="o">
+           <iframe src="https://drive.google.com/file/d/13Cz9tLccQv5_mMQiaC-pzMkRrh3Z16W_/preview" class="video" controls=""></iframe>
+            <h3>sotha thingiriya illa-template</h3>
+            <a href="https://drive.google.com/u/0/uc?id=13Cz9tLccQv5_mMQiaC-pzMkRrh3Z16W_&export=download" download="Tamil-memes-sotha thingiriya illa"><button class="down">Download</button></a>
+        </div> 
+         <div class="para">
+        <p>Disclaimer:Copyright Disclaimer under section of 107 of the copyright act 1976 ,allowance is made for "fair use"for purposes such as criticism ,commenting,news reporting,teaching,scholarship,and research .Fair use is a use permitted by copyright statue that might otherwise be infringing .Non-profit,educational or personal use tips the balance in favor of fair use. If you would like to remove any movie clip i have used in this website,send a email to<mark> jayasuryam368@gmail.com </mark>and your clips will be removed immediately</p>
+      </div>
+        </center>
+  <script>
+     function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+      document.getElementById('mainContent').classList.toggle('shift');
+    }
+
+    const searchInput = document.getElementById("searchInput");
+    const resultList = document.getElementById("resultList");
+    const items = resultList.getElementsByTagName("div");
+
+    searchInput.addEventListener("keyup", function() {
+      const filter = searchInput.value.toLowerCase();
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(filter) ? "" : "none";
+      }
+    });
+  </script>
+   </body>
+
+      

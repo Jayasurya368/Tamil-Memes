@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Tamil Memes </title>
+    <link rel="stylesheet" href="style.css">
+    <link  rel="icon"  href="icon.ico">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    </head>
+      <body style="background-color: hsl(25, 100%, 96%);">
+        <header>
+          <div>
+            <img class="logo" src="icon.jpg" width="100">
+          </div>
+            <h1 class="title">Vadivel<br> Memes</h1>
+          <div class="search-container">
+          <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search memes..." />
+            <button type="button">Search</button>
+          </div>
+          </div>
+            
+        </header>
+        <marquee class="marq">Search categories in the Menu bar </marquee>
+           <button class="open-btn" onclick="toggleSidebar()">☰ Menu</button>
+
+  <div class="sidebar" id="sidebar">
+     <a href="index.html">Home</a>
+    <a href="vadivel.html">Vadivelu memes</a>
+    <a href="youtuber.html">Youtuber memes</a>
+    <a href="abroad.html">Abroad movies</a>
+    <a href="tamil.html">Tamil movies</a>
+  </div>
+    <div class="results" id="resultList">
+        <center>
+           <div class="o">
+            <iframe src="https://drive.google.com/file/d/1ck0tCV3vjCMiDAHRxD217rVALNRtKxFS/preview" class="video" controls=""></iframe>
+            <h3>appadikelu theriyathu dialogue-tamil meme template</h3>
+            <a href="https://drive.google.com/u/0/uc?id=1ck0tCV3vjCMiDAHRxD217rVALNRtKxFS&export=download" download="Tamil-memes-appadikelu dialogue vadivelu"><button class="down">Download</button></a>
+        </div>
+        <div class="o">
+           <iframe src="https://drive.google.com/file/d/1zyeoaTNA28PzXPK-dY14xz_LLerYE5R6/preview" class="video" controls=""></iframe>
+            <h3>Dei ennaya vachi comedy dialogue-tamil meme template</h3>
+            <a href="https://drive.google.com/u/0/uc?id=1zyeoaTNA28PzXPK-dY14xz_LLerYE5R6&export=download" download="Tamil-memes-comedy dialogue"><button class="down">Download</button></a>
+        </div>
+        <div class="o">
+           <iframe src="https://drive.google.com/file/d/1AFgy-4VmtNzAvbevahQhhxJjBI7jCcQi/preview" class="video" controls=""></iframe>
+            <h3>ithu enna pramatham-tamil template</h3>
+            <a href="https://drive.google.com/u/0/uc?id=1AFgy-4VmtNzAvbevahQhhxJjBI7jCcQi&export=download" download="Tamil-memes-ithu enna pramatham"><button class="down">Download</button></a>
+        </div>
+        <div class="o">
+           <iframe src="https://drive.google.com/file/d/1iT85p_smrzgIWD6z3NX36NISS7vbWQxf/preview" class="video" controls=""></iframe>
+            <h3>perfomance panna vidra-template</h3>
+            <a href="https://drive.google.com/u/0/uc?id=1iT85p_smrzgIWD6z3NX36NISS7vbWQxf&export=download" download="Tamil-memes-perfomance panna vidra"><button class="down">Download</button></a>
+        </div>
+        <div class="o">
+           <iframe src="https://drive.google.com/file/d/1zV3X25fF8Bs6HqmQ1mEzRvUUua9Bs6wk/preview" class="video" controls=""></iframe>
+            <h3>parthale therigirathu -template</h3>
+            <a href="https://drive.google.com/u/0/uc?id=1zV3X25fF8Bs6HqmQ1mEzRvUUua9Bs6wk&export=download" download="Tamil-memes-parthale therigirathu vadivelu"><button class="down">Download</button></a>
+        </div>
+        <div class="o">
+            <iframe src="https://drive.google.com/file/d/1ibis1C_6yBmOPRcyHhedZ-KEXxqBO53x/preview" class="video" controls=""></iframe>
+            <h3>vadivel looking-tamil meme template</h3>
+            <a href="https://drive.google.com/u/0/uc?id=1ibis1C_6yBmOPRcyHhedZ-KEXxqBO53x&export=download" download="Tamil-memes-vadivel looking"><button class="down">Download</button></a>
+        </div> 
+        <div class="o">
+           <iframe src="https://drive.google.com/file/d/1Z_4NaZjkxJaYl9IgWHltPaWYAG8dCTGh/preview" class="video" controls=""></iframe>
+            <h3>hiepidi vadivelu meme- tamil template</h3>
+            <a href="https://drive.google.com/u/0/uc?id=1Z_4NaZjkxJaYl9IgWHltPaWYAG8dCTGh&export=download" download="Tamil-memes-hiepidi vadivelu meme"><button class="down">Download</button></a>
+        </div>
+        
+         <div class="para">
+        <p>Disclaimer:Copyright Disclaimer under section of 107 of the copyright act 1976 ,allowance is made for "fair use"for purposes such as criticism ,commenting,news reporting,teaching,scholarship,and research .Fair use is a use permitted by copyright statue that might otherwise be infringing .Non-profit,educational or personal use tips the balance in favor of fair use. If you would like to remove any movie clip i have used in this website,send a email to<mark> jayasuryam368@gmail.com </mark>and your clips will be removed immediately</p>
+      </div>
+        </center>
+  <script>
+     function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+      document.getElementById('mainContent').classList.toggle('shift');
+    }
+
+    const searchInput = document.getElementById("searchInput");
+    const resultList = document.getElementById("resultList");
+    const items = resultList.getElementsByTagName("div");
+
+    searchInput.addEventListener("keyup", function() {
+      const filter = searchInput.value.toLowerCase();
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(filter) ? "" : "none";
+      }
+    });
+  </script>
+   </body>
+
+      
