@@ -135,7 +135,7 @@ nav ul{
 }
 .video{
         width:350px;
-      height: 250px;
+      height: 200px;
       margin-top:20px;
       &:hover{
             border-radius:20px 50px;
