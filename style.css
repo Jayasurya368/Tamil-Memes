@@ -120,7 +120,7 @@ nav ul{
       border-radius: 20px 50px;
       margin-left:150px;
       @media screen and (max-width:450px){
-        width:360px;
+        width:320px;
         height:100px;
         margin-left: 27px;
       }
@@ -255,6 +255,7 @@ nav ul{
     .content.shift {
       margin-left: 250px;
     }
+
 
 
 
