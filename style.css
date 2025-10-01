@@ -81,7 +81,7 @@ header{
     margin-left: -5px;
     box-shadow: inset 4px 4px 10px #ff95f6,
           inset -4px -4px 10px #fff990;
-          @media screen and (max-width:400px) {
+          @media screen and (max-width:450px) {
             margin-right: -5px;
           }
 }
