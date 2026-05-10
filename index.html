@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tamil Meme Templates | Free HD Download</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="Download Tamil meme templates for free. No watermark, HD quality, trending and funny memes updated daily!">
+  <meta name="keywords" content="Tamil memes, meme templates, free download, funny, HD Tamil memes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --surface: #161616;
+      --card: #1c1c1c;
+      --border: #2a2a2a;
+      --accent: #ff4500;
+      --accent2: #ff8c00;
+      --text: #f0f0f0;
+      --muted: #888;
+      --radius: 14px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      position: fixed;
+      top: 0; left: -260px;
+      width: 260px; height: 100vh;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      z-index: 1000;
+      transition: left .3s ease;
+      padding: 80px 0 24px;
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar.active { left: 0; }
+
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 24px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all .2s;
+      border-left: 3px solid transparent;
+    }
+    .sidebar a:hover, .sidebar a.active {
+      color: var(--text);
+      background: rgba(255,69,0,.08);
+      border-left-color: var(--accent);
+    }
+    .sidebar a .icon { font-size: 18px; width: 22px; text-align: center; }
+
+    .overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.6);
+      z-index: 999;
+    }
+    .overlay.active { display: block; }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky; top: 0;
+      z-index: 100;
+      background: rgba(13,13,13,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 20px;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .menu-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 38px; height: 38px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .2s;
+      flex-shrink: 0;
+    }
+    .menu-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .logo-text {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      background: linear-gradient(90deg, #fff 40%, var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      white-space: nowrap;
+    }
+
+    .search-wrap {
+      flex: 1;
+      max-width: 380px;
+      margin-left: auto;
+    }
+    .search-box {
+      display: flex;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color .2s;
+    }
+    .search-box:focus-within { border-color: var(--accent); }
+    .search-box input {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      color: var(--text);
+      padding: 9px 14px;
+      font-size: 13px;
+      font-family: inherit;
+    }
+    .search-box input::placeholder { color: var(--muted); }
+    .search-box button {
+      background: var(--accent);
+      border: none;
+      color: #fff;
+      padding: 0 16px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: inherit;
+      transition: background .2s;
+    }
+    .search-box button:hover { background: var(--accent2); }
+
+    /* ── ANNOUNCEMENT BAR ── */
+    .announce {
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+      padding: 8px 16px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .3px;
+      color: #fff;
+    }
+
+    /* ── PAGE LAYOUT ── */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 20px 60px;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .section-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+    }
+    .badge {
+      background: var(--accent);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    /* ── MEME GRID ── */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform .2s, border-color .2s, box-shadow .2s;
+  display: none; /* <--- REMOVE OR COMMENT THIS LINE */
+}
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255,69,0,.4);
+      box-shadow: 0 8px 32px rgba(255,69,0,.12);
+    }
+
+    .card-video {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      display: block;
+      border: none;
+      min-height: 200px;
+    }
+
+    .card-body {
+      padding: 12px 14px 14px;
+    }
+    .card-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.4;
+      text-transform: capitalize;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity .2s, transform .1s;
+      font-family: inherit;
+      width: 100%;
+      justify-content: center;
+    }
+    .btn-download:hover { opacity: .9; transform: scale(1.01); }
+    .btn-download svg { width: 14px; height: 14px; }
+
+    /* ── LOAD MORE ── */
+    .load-more-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 36px;
+    }
+    .btn-load {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 12px 36px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .2s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .btn-load:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── FEEDBACK ── */
+    .feedback-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 36px;
+    }
+    .feedback-section h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+    .feedback-section p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .feedback-section textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      padding: 12px;
+      font-size: 13px;
+      font-family: inherit;
+      resize: vertical;
+      min-height: 80px;
+      outline: none;
+      transition: border-color .2s;
+      margin-bottom: 10px;
+    }
+    .feedback-section textarea:focus { border-color: var(--accent); }
+    .btn-send {
+      background: var(--accent);
+      border: none;
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background .2s;
+    }
+    .btn-send:hover { background: var(--accent2); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 20px;
+      text-align: center;
+    }
+    footer p {
+      font-size: 11px;
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto 8px;
+      line-height: 1.6;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── EMPTY STATE ── */
+    .empty {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+    }
+    .empty-icon { font-size: 48px; margin-bottom: 12px; }
+    .empty h3 { font-size: 18px; color: var(--text); margin-bottom: 6px; }
+
+    /* ── COUNT BADGE ── */
+    .count-info {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .count-info span { color: var(--accent); font-weight: 600; }
+
+    @media (max-width: 500px) {
+      .logo-text { display: none; }
+      .grid { grid-template-columns: 1fr; gap: 16px; }
+      .card-body { padding: 10px 12px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+<div class="sidebar" id="sidebar">
+  <a href="index.html" class="active"><span class="icon">🏠</span> Home</a>
+  <a href="vadivel.html"><span class="icon">😂</span> Vadivelu Memes</a>
+  <a href="youtuber.html"><span class="icon">▶️</span> Youtuber Memes</a>
+  <a href="abroad.html"><span class="icon">🎬</span> Abroad Movies</a>
+  <a href="tamil.html"><span class="icon">🎥</span> Tamil Movies</a>
+  <a href="badword.html"><span class="icon">🔞</span> Bad Word Memes</a>
+  <a href="feedback.html" style="margin-top:auto"><span class="icon">💬</span> Feedback</a>
+</div>
+
+<header>
+  <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+  <a class="logo-area" href="index.html">
+    <div class="logo-icon">😆</div>
+    <span class="logo-text">Tamil Memes</span>
+  </a>
+  <div class="search-wrap">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search memes...">
+      <button type="button">Search</button>
+    </div>
+  </div>
+</header>
+
+<div class="announce">🔥 We're updating daily — new templates added every 24 hrs! Check the <a href="feedback.html" style="color:#fff;font-weight:700;text-decoration:underline">Feedback page</a> for your requests.</div>
+
+<main>
+
+  <!-- Feedback -->
+  <div class="feedback-section">
+    <h2>🎯 Request a Meme Template</h2>
+    <p>Can't find what you need? Tell us and we'll add it within 24 hours.</p>
+    <form action="https://formspree.io/f/xgodkkwj" method="POST">
+      <textarea name="feedback" placeholder="Type your meme request here..."></textarea>
+      <button class="btn-send" type="submit">Send Request</button>
+    </form>
+  </div>
+
+  <!-- Trending Section -->
+  <div class="section-header">
+    <span class="section-label">🔥 Trending Templates</span>
+    <span class="badge">Free HD</span>
+  </div>
+
+  <div class="count-info" id="countInfo">Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> templates</div>
+
+  <div class="empty" id="emptyState">
+    <div class="empty-icon">🔍</div>
+    <h3>No memes found</h3>
+    <p>Try a different search term</p>
+  </div>
+  <div class="grid" id="resultList">
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190853447?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Yaaru idea kannu ithu meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/iiuewcp7iraacb8/Yaaru+Idea+Kannu+Ithu.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190853443?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Theriyathu i don't know meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/u8flqlowe97yhjd/Theriyathu+I+Don't+Know.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190853445?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Endra ithu meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/zpmr7iz4o1glfew/Endra+Ithu.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190743191?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">summa na prank na ithu meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/b75naocmt2ya2oz/summa+na+prank+na+ithu.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190743155?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">sootha moodra p*** meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/ckur6jiobopq086/sootha+moodra+puda.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190743090?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">ahhn nottuvanga meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/b1vqu7cd9hk3xhh/ahhhn+nottuvaanga.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190743091?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">aayi vara maari iruku meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/il91q1g6wavck2w/aayi+vara+maari+iruku.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190743094?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">anna papa love meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/uey7rccyc8nqmas/anna+papa+love.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190743138?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Ennaya yaaravthu adichu kollungada meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/vzdtr8as2d3neli/ennaya+yaaravathu+adichu+kolungada.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190743132?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Dad mom sentmental meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/kt8p8932kvz795k/dad+mom+sentimental+meme.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190700696?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">RJ Balaji what a women meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/3prjf4jmuog7wis/What_A_Women_Rj_Balaji.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190700599?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Enna anne moonjila siripa kaanom tamil template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/c8skdw33dg8heqc/Enna+Anne+Moonjila+Siripa+Kaanom.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190700624?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Mavane anga mattum JK meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/777hvzf6jq6q5kq/Mavane+Anga+Mattum+Naa+Irunthurankanum+Jk+Meme.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190700682?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Vaitherichal Sivakarthikeyan meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/xoyodhd8bdieikl/Vaitherichal+Meme+Sivakarthikeyan.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190700622?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Intha siru balaganidam Ramar meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/nn2liwrt3tbc18u/Intha+Siru+Balaganidam+Ramar+Meme.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190700646?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Overacting panra meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/7zgpn8k9fdv64jo/Overacting+Panra+Meme.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190700651?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Parent and child funny meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/frn02ku4dknbyv1/Parent+And+Child+Funny+Meme.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190700670?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Saithana pethu vitrukanunga meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/sackcvse0eag738/Saithana++Pethu+Vitrukanunga+Meme.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190700623?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Ennaya mattum ipdi adichurunthanu vacika meme</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/qwzhwi1rgt32gq7/Ennaya+Mattum+Ipdi+Adichurunthanu+Vacika+Meme.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Ithu_Onaku_Oru_Perumaiya_t7pwmi" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Ithu onaku oru perumaiyada serial actor template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777897835/Ithu_Onaku_Oru_Perumaiya_t7pwmi.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Gopi_Suthagar_diyqz9" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Gopi and Sudhagar paridhabangal template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777897904/Gopi_Suthagar_diyqz9.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Jack_And_Chill_Youtuber_Comedy_Scene_qnm4ns" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Jack and Chill youtuber meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777897876/Jack_And_Chill_Youtuber_Comedy_Scene_qnm4ns.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Jump_Cats_xxpagm" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Jump cats comedy scene Hari Baskar template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777897941/Jump_Cats_xxpagm.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Old_Drama_Comedy_Scene_un1tfx" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Tamil old drama comedy meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777897944/Old_Drama_Comedy_Scene_un1tfx.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Kpy_Comedy_wl0xvk" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Kalakapovathu yaaru comedy meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777897944/Kpy_Comedy_wl0xvk.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Nee_Oru_Aalu_Onaku_Oru_Bullet_kez7eh" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Avan Ivan movie comedy meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777897950/Nee_Oru_Aalu_Onaku_Oru_Bullet_kez7eh.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Santhanam_Comedy_jkzlfc" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Chinna paiyan jatty Santhanam meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777897973/Santhanam_Comedy_jkzlfc.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Paithiiyonga_jzb5vc" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Paithiyonga TikToker meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777897974/Paithiiyonga_jzb5vc.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Solvathellam_Unmaiy_vouzrq" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Solvathellam unmai meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777897967/Solvathellam_Unmaiy_vouzrq.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Oru_Saanu_Vaithuku_Than_bio7bl" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Jilla vittu song meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777897979/Oru_Saanu_Vaithuku_Than_bio7bl.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=R15_dwxynw" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">R15 influencer comedy meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777897986/R15_dwxynw.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Youtuber_Jk_awzkov" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Youtuber JK comedy meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777898194/Youtuber_Jk_awzkov.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Naan_Antha_Maari_Paiyan-Meme_r2hkiy" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Naa antha maari paiyan illaka influencer meme</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777977956/Naan_Antha_Maari_Paiyan-Meme_r2hkiy.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Amanagundi_Ya_Nipaan_Meme_uuk40g" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Amanakundiya poi roadla nippan sir template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777977964/Amanagundi_Ya_Nipaan_Meme_uuk40g.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Enna_Pannitanu_Pallu_Meme_iohfxh" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Nee enna pannitanu pallu meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777977985/Enna_Pannitanu_Pallu_Meme_iohfxh.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Arjun_Comedy_Meme_mq8xng" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Yaaraiyum pidikathu yenaku Arjun meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777977994/Arjun_Comedy_Meme_mq8xng.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Goundamani_Comedy_Meme_tdikpi" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Goundamani comedy meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777978000/Goundamani_Comedy_Meme_tdikpi.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Teen_Titans_And_Diwagar_Meme_jpr2pd" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Teen Titans go and Dr Diwagar meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777978002/Teen_Titans_And_Diwagar_Meme_jpr2pd.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Selvaraghavan_Comedy_Meme_o4tu8c" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Director Selvaraghavan meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777978003/Selvaraghavan_Comedy_Meme_o4tu8c.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Neenga_Enna_Pulla_Meme_xc2l5u" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Arathaangi Nisha comedy meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777978009/Neenga_Enna_Pulla_Meme_xc2l5u.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Fahad_Fasil_Comedy_Meme_mesdcu" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Fahadh Faasil Vikram movie meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777978013/Fahad_Fasil_Comedy_Meme_mesdcu.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=bakyaraj_old_movie_meme_ureycm" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Bakyaraj movie comedy meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1778065812/bakyaraj_old_movie_meme_ureycm.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=cat_sleeping_meme_cojn4l" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Cat sleeping meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1778065878/cat_sleeping_meme_cojn4l.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=cat_eating_meme_pmnloe" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Cat eating meme tamil template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1778065880/cat_eating_meme_pmnloe.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=empty_hand_rvo5gg" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Empty hand youtuber meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1778065894/empty_hand_rvo5gg.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=motta_rajendran_meme_xqc6sz" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Motta Rajendran and Vijay Sethupathi meme template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1778065909/motta_rajendran_meme_xqc6sz.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=old_movie_meme_d9eqtt" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Old movie meme tamil template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1778065927/old_movie_meme_d9eqtt.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=youtuber_meme_p41fr1" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Youtuber meme dialogue template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1778065979/youtuber_meme_p41fr1.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=yeah_tube_meme_z77zwn" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Yeah Tube youtuber dialogue template</div>
+        <a class="btn-download" href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1778065995/yeah_tube_meme_z77zwn.mp4" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190704025?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Avana solli niruthungada meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/ksca2tq5hlqo0dq/Avana+Solli+Niruthungada.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190704027?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Itha supernu solraven Santhanam meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/308oui7ycbtzfh8/Itha+Supernu+Solraven+Santhanam.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190704134?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Seeman laughing meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/zdmmhcff74n2h47/Seeman+Laughing+Meme.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190704026?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Yeanda pesama iruka maatiyada meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/8f1b9wk3szhwnif/Pesamaye+Iruka+Maatiyada.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1190704102?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <div class="card-body">
+        <div class="card-title">Pudhupettai movie scene meme template</div>
+        <a class="btn-download" href="https://www.mediafire.com/file/ak3lsj3f0o1za0z/Pudhupettai+Movie+Meme.mp4/file" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /grid -->
+
+  <div class="load-more-wrap">
+  <button class="btn-load" id="loadMoreBtn">Load more memes</button>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2024 TamilMemes.tech · <strong>Copyright Disclaimer</strong>: Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, commentary, news reporting, teaching, scholarship, and research. This is a non-profit, educational platform. To request removal of any clip, email <a href="mailto:tamilmemes.tech1@gmail.com">tamilmemes.tech1@gmail.com</a> and it will be removed promptly.</p>
+</footer>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2345788418494870" crossorigin="anonymous"></script>
+
+<script>
+  // Essential variables
+  let shown = 0;
+  const BATCH = 6;
+  let searchMode = false;
+
+  // 1. THIS WAS MISSING: Function to find all meme cards
+  function allCards() {
+    return Array.from(document.querySelectorAll('#resultList .card'));
+  }
+
+  // 2. Function to load the video only when needed (Lazy Loading)
+  function loadIframe(card) {
+    const iframe = card.querySelector('iframe');
+    if (iframe && iframe.dataset.src) {
+      iframe.src = iframe.dataset.src;
+      iframe.removeAttribute('data-src');
+    }
+  }
+
+  // 3. Function to show memes in groups of 6
+  function showBatch() {
+    const cards = allCards();
+    const totalCount = cards.length;
+    const end = Math.min(shown + BATCH, totalCount);
+
+    for (let i = shown; i < end; i++) {
+      cards[i].style.display = 'block'; // Make the card visible
+      loadIframe(cards[i]); // Load the video
+    }
+
+    shown = end;
+    
+    // Update the counter at the top
+    document.getElementById('visibleCount').textContent = shown;
+    document.getElementById('totalCount').textContent = totalCount;
+
+    // Show or hide "Load More" button based on remaining cards
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const wrap = loadMoreBtn.closest('.load-more-wrap');
+    if (shown >= totalCount) {
+      wrap.style.display = 'none';
+    } else {
+      wrap.style.display = 'flex';
+    }
+  }
+
+  // 4. Reset the grid on page load
+  function initGrid() {
+    const cards = allCards();
+    // Hide all cards initially
+    cards.forEach(c => { c.style.display = 'none'; });
+    shown = 0;
+    showBatch(); // Show first 6 — showBatch handles button visibility
+  }
+
+  // 5. Run everything when the page opens
+  document.addEventListener('DOMContentLoaded', function() {
+    initGrid();
+
+    // Load More Button Event (must be inside DOMContentLoaded)
+    document.getElementById('loadMoreBtn').addEventListener('click', showBatch);
+
+    // Search Logic
+    document.getElementById('searchInput').addEventListener('input', function() {
+    const q = this.value.toLowerCase().trim();
+    const cards = allCards();
+    const btn = document.getElementById('loadMoreBtn');
+
+    if (!q) {
+      searchMode = false;
+      initGrid();
+      document.getElementById('emptyState').style.display = 'none';
+      return;
+    }
+
+    searchMode = true;
+    btn.closest('.load-more-wrap').style.display = 'none';
+    let found = 0;
+    cards.forEach(card => {
+      const match = card.textContent.toLowerCase().includes(q);
+      card.style.display = match ? 'block' : 'none';
+      if (match) { loadIframe(card); found++; }
+    });
+    document.getElementById('emptyState').style.display = (found === 0) ? 'block' : 'none';
+    }); // end searchInput listener
+  }); // end DOMContentLoaded
+
+  // Sidebar functions (global scope — used by onclick attributes in HTML)
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('active');
+    document.getElementById('overlay').classList.toggle('active');
+  }
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('active');
+    document.getElementById('overlay').classList.remove('active');
+  }
+</script>
+</body>
+</html>
+
+
+
