@@ -360,6 +360,181 @@
     footer a { color: var(--accent); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .footer-links a {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--accent); text-decoration: none; }
+    .footer-sep { color: var(--border); font-size: 13px; }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.75);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px 28px;
+      max-width: 560px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      position: relative;
+      animation: modalIn .25s ease;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(24px) scale(.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .modal-close {
+      position: absolute; top: 16px; right: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 13px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .2s;
+    }
+    .modal-close:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .modal-icon { font-size: 38px; margin-bottom: 10px; }
+    .modal-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .modal-date { font-size: 11px; color: var(--muted); margin-bottom: 18px; }
+    .modal-body h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 18px 0 6px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .modal-body p { font-size: 13px; color: #ccc; line-height: 1.65; margin-bottom: 8px; }
+    .modal-body ul { padding-left: 18px; margin-bottom: 8px; }
+    .modal-body ul li { font-size: 13px; color: #ccc; line-height: 1.8; }
+    .modal-body a { color: var(--accent); }
+    .modal-body strong { color: var(--text); }
+
+    /* ── FAVOURITE BUTTON ON CARD ── */
+    .btn-fav {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 7px 0;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .2s;
+      width: 44px;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .btn-fav:hover { border-color: #e0245e; color: #e0245e; }
+    .btn-fav.faved { background: rgba(224,36,94,.12); border-color: #e0245e; color: #e0245e; }
+
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      align-items: stretch;
+    }
+    .card-actions .btn-download { flex: 1; }
+
+    /* ── FAVOURITES PAGE ── */
+    .fav-overlay { align-items: flex-start; padding-top: 40px; }
+    .fav-modal-box { max-width: 760px; }
+    .fav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .fav-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .fav-card-title {
+      font-size: 12px;
+      color: var(--text);
+      padding: 8px 10px 4px;
+      line-height: 1.4;
+      text-transform: capitalize;
+    }
+    .fav-card-actions {
+      display: flex;
+      gap: 6px;
+      padding: 6px 10px 10px;
+    }
+    .fav-card-actions a {
+      flex: 1;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 6px;
+      padding: 7px 0;
+      text-align: center;
+      text-decoration: none;
+      font-family: inherit;
+    }
+    .fav-remove-btn {
+      background: rgba(224,36,94,.1);
+      border: 1px solid rgba(224,36,94,.3);
+      color: #e0245e;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 6px;
+      padding: 7px 10px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .2s;
+    }
+    .fav-remove-btn:hover { background: rgba(224,36,94,.22); }
+    .fav-empty { text-align: center; padding: 40px 0; color: var(--muted); font-size: 14px; }
+    .btn-fav-clear {
+      background: transparent;
+      border: 1px solid rgba(224,36,94,.4);
+      color: #e0245e;
+      padding: 9px 22px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .2s;
+    }
+    .btn-fav-clear:hover { background: rgba(224,36,94,.1); }
+
     /* ── EMPTY STATE ── */
     .empty {
       display: none;
@@ -396,6 +571,7 @@
   <a href="abroad.html"><span class="icon">🎬</span> Abroad Movies</a>
   <a href="tamil.html"><span class="icon">🎥</span> Tamil Movies</a>
   <a href="badword.html"><span class="icon">🔞</span> Bad Word Memes</a>
+  <a href="#" onclick="showFavourites();closeSidebar();return false;"><span class="icon">❤️</span> My Favourites <span id="fav-sidebar-count" style="margin-left:auto;background:var(--accent);color:#fff;font-size:10px;padding:2px 6px;border-radius:10px;display:none">0</span></a>
   <a href="feedback.html" style="margin-top:auto"><span class="icon">💬</span> Feedback</a>
 </div>
 
@@ -473,7 +649,7 @@ l.parentNode.insertBefore(s, l);
     </div>
 
     <div class="card">
-      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1198615953?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
+      <iframe class="card-video" src="" data-src="https://player.vimeo.com/video/1198690978?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>
       <div class="card-body">
         <div class="card-title">Adei oduna mattum onna vitruvoma meme_tamilmemes.tech</div>
         <a class="btn-download" href="https://www.mediafire.com/file/5el2a7u7qkep8mg/Adei+oduna+mattum+onna+vitruvoma+meme.mp4/file" download>
@@ -1772,24 +1948,274 @@ l.parentNode.insertBefore(s, l);
 </main>
 
 <footer>
+  <div class="footer-links">
+    <a href="#" onclick="openModal('about-modal');return false;">About</a>
+    <span class="footer-sep">·</span>
+    <a href="#" onclick="openModal('privacy-modal');return false;">Privacy Policy</a>
+    <span class="footer-sep">·</span>
+    <a href="feedback.html">Feedback</a>
+    <span class="footer-sep">·</span>
+    <a href="mailto:tamilmemes.tech1@gmail.com">Contact</a>
+  </div>
   <p>© 2024 TamilMemes.tech · <strong>Copyright Disclaimer</strong>: Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, commentary, news reporting, teaching, scholarship, and research. This is a non-profit, educational platform. To request removal of any clip, email <a href="mailto:tamilmemes.tech1@gmail.com">tamilmemes.tech1@gmail.com</a> and it will be removed promptly.</p>
 </footer>
+
+<!-- ── ABOUT MODAL ── -->
+<div class="modal-overlay" id="about-modal" onclick="if(event.target===this)closeModal('about-modal')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('about-modal')">✕</button>
+    <div class="modal-icon">😆</div>
+    <h2 class="modal-title">About TamilMemes.tech</h2>
+    <div class="modal-body">
+      <p>Welcome to <strong>TamilMemes.tech</strong> — the internet's go-to destination for free, high-definition Tamil meme templates!</p>
+      <p>We started this platform out of love for Tamil culture, cinema, and the internet's favourite pastime — meme-making. Whether you're a content creator, a WhatsApp group legend, or just someone who loves a good laugh, we've got you covered.</p>
+      <h3>🎯 Our Mission</h3>
+      <p>To provide the best collection of Tamil meme templates — totally free, no watermarks, HD quality — and keep it updated daily with the freshest content.</p>
+      <h3>📦 What We Offer</h3>
+      <ul>
+        <li>🔥 Trending Tamil meme templates</li>
+        <li>🎬 Vadivelu, Youtuber, Tamil movie clips</li>
+        <li>📥 Direct HD downloads — no signup required</li>
+        <li>🔄 New memes added every 24 hours</li>
+        <li>❤️ Save your favourite memes locally</li>
+      </ul>
+      <h3>📬 Contact Us</h3>
+      <p>Have a request, found an issue, or want to say hi? Email us at <a href="mailto:tamilmemes.tech1@gmail.com">tamilmemes.tech1@gmail.com</a> or use our <a href="feedback.html">Feedback page</a>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── PRIVACY POLICY MODAL ── -->
+<div class="modal-overlay" id="privacy-modal" onclick="if(event.target===this)closeModal('privacy-modal')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('privacy-modal')">✕</button>
+    <div class="modal-icon">🔒</div>
+    <h2 class="modal-title">Privacy Policy</h2>
+    <p class="modal-date">Last updated: January 2025</p>
+    <div class="modal-body">
+      <p>TamilMemes.tech ("we", "us", or "our") is committed to protecting your privacy. This policy explains how we handle your information.</p>
+      <h3>1. Information We Collect</h3>
+      <p>We do not collect any personally identifiable information. We may collect anonymous usage data (pages visited, download counts) to improve the service.</p>
+      <h3>2. Cookies</h3>
+      <p>We use cookies solely to store your <strong>favourite memes</strong> locally in your browser. This data never leaves your device and is not shared with anyone. You can clear your favourites at any time from the Favourites page.</p>
+      <h3>3. Third-Party Services</h3>
+      <p>We use the following third-party services which may set their own cookies:</p>
+      <ul>
+        <li><strong>Google AdSense</strong> — for displaying ads. Google may use cookies to serve relevant ads based on your browsing.</li>
+        <li><strong>Vimeo / Cloudinary</strong> — for hosting and streaming meme videos.</li>
+        <li><strong>Web3Forms</strong> — for processing feedback submissions.</li>
+      </ul>
+      <h3>4. No Data Sales</h3>
+      <p>We do not sell, trade, or rent your personal information to any third parties.</p>
+      <h3>5. Copyright</h3>
+      <p>All meme templates are shared under fair use (Section 107, Copyright Act 1976) for commentary and educational purposes. To request removal of a clip, email <a href="mailto:tamilmemes.tech1@gmail.com">tamilmemes.tech1@gmail.com</a>.</p>
+      <h3>6. Contact</h3>
+      <p>Questions about this policy? Contact us at <a href="mailto:tamilmemes.tech1@gmail.com">tamilmemes.tech1@gmail.com</a>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── FAVOURITES PAGE OVERLAY ── -->
+<div class="modal-overlay fav-overlay" id="fav-page" onclick="if(event.target===this)closeFavourites()">
+  <div class="modal-box fav-modal-box">
+    <button class="modal-close" onclick="closeFavourites()">✕</button>
+    <div class="modal-icon">❤️</div>
+    <h2 class="modal-title">My Favourite Memes</h2>
+    <p class="modal-date" id="fav-subtitle">Your saved memes appear here</p>
+    <div id="fav-grid" class="fav-grid"></div>
+    <div id="fav-empty" class="fav-empty" style="display:none">
+      <div style="font-size:48px;margin-bottom:12px">💔</div>
+      <p>No favourites yet! Hit the ❤️ on any meme to save it here.</p>
+    </div>
+    <div id="fav-clear-wrap" style="text-align:center;margin-top:20px;display:none">
+      <button class="btn-fav-clear" onclick="clearAllFavourites()">🗑 Clear All Favourites</button>
+    </div>
+  </div>
+</div>
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2345788418494870" crossorigin="anonymous"></script>
 
 <script>
-  
-  // Essential variables
+  // ── STORAGE: localStorage primary, cookie fallback ───────────────
+  function getFavs() {
+    try {
+      const raw = localStorage.getItem('tmfavs');
+      return raw ? JSON.parse(raw) : [];
+    } catch(e) {
+      try {
+        const v = document.cookie.split('; ').find(r => r.startsWith('tmfavs='));
+        return v ? JSON.parse(decodeURIComponent(v.split('=')[1])) : [];
+      } catch(e2) { return []; }
+    }
+  }
+  function saveFavs(arr) {
+    try { localStorage.setItem('tmfavs', JSON.stringify(arr)); } catch(e) {}
+    try {
+      const exp = new Date(Date.now() + 365*864e5).toUTCString();
+      document.cookie = 'tmfavs=' + encodeURIComponent(JSON.stringify(arr)) + '; expires=' + exp + '; path=/; SameSite=Lax';
+    } catch(e) {}
+  }
+
+  // ── MODAL HELPERS ───────────────────────────────────────────────
+  function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      ['about-modal','privacy-modal','fav-page'].forEach(id => {
+        document.getElementById(id).classList.remove('open');
+      });
+      document.body.style.overflow = '';
+    }
+  });
+
+  // ── FAVOURITES PAGE ─────────────────────────────────────────────
+  function showFavourites() {
+    renderFavPage();
+    openModal('fav-page');
+  }
+  function closeFavourites() { closeModal('fav-page'); }
+
+  function renderFavPage() {
+    const favs = getFavs();
+    const grid = document.getElementById('fav-grid');
+    const empty = document.getElementById('fav-empty');
+    const clearWrap = document.getElementById('fav-clear-wrap');
+    const subtitle = document.getElementById('fav-subtitle');
+    grid.innerHTML = '';
+
+    if (!favs.length) {
+      empty.style.display = 'block';
+      clearWrap.style.display = 'none';
+      subtitle.textContent = 'Your saved memes appear here';
+      return;
+    }
+
+    empty.style.display = 'none';
+    clearWrap.style.display = 'block';
+    subtitle.textContent = favs.length + ' meme' + (favs.length > 1 ? 's' : '') + ' saved';
+
+    favs.forEach(fav => {
+      const card = document.createElement('div');
+      card.className = 'fav-card';
+      card.innerHTML = `
+        <div class="fav-card-title">${fav.title}</div>
+        <div class="fav-card-actions">
+          <a href="${fav.dl}" download>⬇ Download</a>
+          <button class="fav-remove-btn" onclick="removeFav('${fav.id}')">✕</button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  function removeFav(id) {
+    let favs = getFavs().filter(f => f.id !== id);
+    saveFavs(favs);
+    updateFavButton(id, false);
+    updateSidebarCount();
+    renderFavPage();
+  }
+
+  function clearAllFavourites() {
+    if (!confirm('Clear all your saved favourites?')) return;
+    saveFavs([]);
+    document.querySelectorAll('.btn-fav.faved').forEach(btn => btn.classList.remove('faved'));
+    updateSidebarCount();
+    renderFavPage();
+  }
+
+  function toggleFav(id, title, dl, btn) {
+    let favs = getFavs();
+    const exists = favs.some(f => f.id === id);
+    if (exists) {
+      favs = favs.filter(f => f.id !== id);
+      btn.classList.remove('faved');
+      btn.title = 'Add to Favourites';
+    } else {
+      favs.push({ id, title, dl });
+      btn.classList.add('faved');
+      btn.title = 'Remove from Favourites';
+      btn.style.transform = 'scale(1.3)';
+      setTimeout(() => btn.style.transform = '', 200);
+    }
+    saveFavs(favs);
+    updateSidebarCount();
+  }
+
+  function updateFavButton(id, state) {
+    const btn = document.querySelector(`.btn-fav[data-id="${id}"]`);
+    if (!btn) return;
+    if (state) btn.classList.add('faved'); else btn.classList.remove('faved');
+  }
+
+  function updateSidebarCount() {
+    const n = getFavs().length;
+    const badge = document.getElementById('fav-sidebar-count');
+    if (n > 0) {
+      badge.textContent = n;
+      badge.style.display = 'inline';
+    } else {
+      badge.style.display = 'none';
+    }
+  }
+
+  // ── STAMP STABLE IDs ON ALL CARDS (once at load) ─────────────────
+  function stampCardIds() {
+    document.querySelectorAll('#resultList .card').forEach((card, idx) => {
+      if (!card.dataset.memeId) card.dataset.memeId = 'meme_' + idx;
+    });
+  }
+
+  // ── INJECT FAV BUTTONS INTO VISIBLE CARDS ────────────────────────
+  function injectFavButtons() {
+    const savedIds = new Set(getFavs().map(f => f.id));
+
+    document.querySelectorAll('#resultList .card').forEach(card => {
+      const body = card.querySelector('.card-body');
+      if (!body || body.querySelector('.btn-fav')) return; // already injected
+      if (card.style.display === 'none') return;
+
+      const dlLink = body.querySelector('.btn-download');
+      if (!dlLink) return;
+
+      const titleEl = body.querySelector('.card-title');
+      const title = titleEl ? titleEl.textContent.trim() : 'Meme';
+      // Use the href attribute directly to avoid URL resolution issues
+      const dl = dlLink.getAttribute('href');
+      const id = card.dataset.memeId;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'card-actions';
+      dlLink.parentNode.insertBefore(wrapper, dlLink);
+      wrapper.appendChild(dlLink);
+
+      const favBtn = document.createElement('button');
+      favBtn.className = 'btn-fav' + (savedIds.has(id) ? ' faved' : '');
+      favBtn.dataset.id = id;
+      favBtn.title = savedIds.has(id) ? 'Remove from Favourites' : 'Add to Favourites';
+      favBtn.innerHTML = '❤️';
+      favBtn.addEventListener('click', () => toggleFav(id, title, dl, favBtn));
+      wrapper.appendChild(favBtn);
+    });
+
+    updateSidebarCount();
+  }
+
+  // ── CORE MEME GRID LOGIC ─────────────────────────────────────────
   let shown = 0;
   const BATCH = 6;
   let searchMode = false;
 
-  // 1. THIS WAS MISSING: Function to find all meme cards
   function allCards() {
     return Array.from(document.querySelectorAll('#resultList .card'));
   }
 
-  // 2. Function to load the video only when needed (Lazy Loading)
   function loadIframe(card) {
     const iframe = card.querySelector('iframe');
     if (iframe && iframe.dataset.src) {
@@ -1798,75 +2224,64 @@ l.parentNode.insertBefore(s, l);
     }
   }
 
-  // 3. Function to show memes in groups of 6
   function showBatch() {
     const cards = allCards();
     const totalCount = cards.length;
     const end = Math.min(shown + BATCH, totalCount);
 
     for (let i = shown; i < end; i++) {
-      cards[i].style.display = 'block'; // Make the card visible
-      loadIframe(cards[i]); // Load the video
+      cards[i].style.display = 'block';
+      loadIframe(cards[i]);
     }
 
     shown = end;
-    
-    // Update the counter at the top
     document.getElementById('visibleCount').textContent = shown;
     document.getElementById('totalCount').textContent = totalCount;
 
-    // Show or hide "Load More" button based on remaining cards
+    injectFavButtons();
+
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     const wrap = loadMoreBtn.closest('.load-more-wrap');
-    if (shown >= totalCount) {
-      wrap.style.display = 'none';
-    } else {
-      wrap.style.display = 'flex';
-    }
+    wrap.style.display = (shown >= totalCount) ? 'none' : 'flex';
   }
 
-  // 4. Reset the grid on page load
   function initGrid() {
     const cards = allCards();
-    // Hide all cards initially
     cards.forEach(c => { c.style.display = 'none'; });
     shown = 0;
-    showBatch(); // Show first 6 — showBatch handles button visibility
+    showBatch();
   }
 
-  // 5. Run everything when the page opens
   document.addEventListener('DOMContentLoaded', function() {
+    stampCardIds(); // stamp all cards with stable IDs first
     initGrid();
-
-    // Load More Button Event (must be inside DOMContentLoaded)
     document.getElementById('loadMoreBtn').addEventListener('click', showBatch);
 
-    // Search Logic
     document.getElementById('searchInput').addEventListener('input', function() {
-    const q = this.value.toLowerCase().trim();
-    const cards = allCards();
-    const btn = document.getElementById('loadMoreBtn');
+      const q = this.value.toLowerCase().trim();
+      const cards = allCards();
+      const btn = document.getElementById('loadMoreBtn');
 
-    if (!q) {
-      searchMode = false;
-      initGrid();
-      document.getElementById('emptyState').style.display = 'none';
-      return;
-    }
+      if (!q) {
+        searchMode = false;
+        initGrid();
+        document.getElementById('emptyState').style.display = 'none';
+        return;
+      }
 
-    searchMode = true;
-    btn.closest('.load-more-wrap').style.display = 'none';
-    let found = 0;
-    cards.forEach(card => {
-      const match = card.textContent.toLowerCase().includes(q);
-      card.style.display = match ? 'block' : 'none';
-      if (match) { loadIframe(card); found++; }
+      searchMode = true;
+      btn.closest('.load-more-wrap').style.display = 'none';
+      let found = 0;
+      cards.forEach(card => {
+        const match = card.textContent.toLowerCase().includes(q);
+        card.style.display = match ? 'block' : 'none';
+        if (match) { loadIframe(card); found++; }
+      });
+      document.getElementById('emptyState').style.display = (found === 0) ? 'block' : 'none';
+      injectFavButtons();
     });
-    document.getElementById('emptyState').style.display = (found === 0) ? 'block' : 'none';
-    }); // end searchInput listener
-  }); // end DOMContentLoaded
+  });
 
-  // Sidebar functions (global scope — used by onclick attributes in HTML)
   function toggleSidebar() {
     document.getElementById('sidebar').classList.toggle('active');
     document.getElementById('overlay').classList.toggle('active');
