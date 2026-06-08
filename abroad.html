@@ -9,6 +9,89 @@
   <meta name="description" content="Download Abroad movie meme templates for free. HD quality, no watermark.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── ABOUT + TAG SYSTEM ───────────────────────────── */
+.card-about {
+  font-size: 11.5px;
+  color: #aaa;
+  background: rgba(255,255,255,.04);
+  border-top: 1px solid rgba(255,255,255,.07);
+  padding: 7px 12px;
+  line-height: 1.5;
+  display: none; /* hidden by default; you can set display:block per-card if desired */
+}
+.card-about.show { display: block; }
+.about-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #888;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 5px;
+  padding: 3px 8px;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: color .2s, border-color .2s;
+  font-family: inherit;
+}
+.about-toggle:hover { color: #ff8c00; border-color: rgba(255,140,0,.4); }
+
+/* ── TAGS ── */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 6px 10px 8px;
+}
+.tag-chip {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  text-transform: lowercase;
+  background: rgba(255,69,0,.12);
+  color: #ff8c00;
+  border: 1px solid rgba(255,140,0,.25);
+  border-radius: 4px;
+  padding: 2px 7px;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+  font-family: inherit;
+}
+.tag-chip:hover { background: rgba(255,69,0,.28); color: #fff; }
+.tag-chip.active { background: #ff4500; color: #fff; border-color: #ff4500; }
+
+/* ── ACTIVE TAG FILTER BAR ── */
+#tag-filter-bar {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,69,0,.1);
+  border: 1px solid rgba(255,69,0,.25);
+  border-radius: 8px;
+  padding: 7px 14px;
+  margin-bottom: 14px;
+  font-size: 12px;
+  color: #ff8c00;
+  font-weight: 600;
+}
+#tag-filter-bar.visible { display: flex; }
+#tag-filter-bar button {
+  margin-left: auto;
+  background: none;
+  border: 1px solid rgba(255,69,0,.4);
+  color: #ff8c00;
+  border-radius: 5px;
+  padding: 2px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .15s;
+}
+#tag-filter-bar button:hover { background: rgba(255,69,0,.2); }
+</style>
 </head>
 <body>
 
@@ -62,21 +145,25 @@
     <span class="badge">Free HD</span>
   </div>
 
-  <div class="results" id="resultList">
+  <div id="tag-filter-bar">
+  <span>Filtering by tag: <strong id="active-tag-label"></strong></span>
+  <button onclick="clearTagFilter()">✕ Clear filter</button>
+</div>
+<div class="results" id="resultList">
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_chinese_movie_advice_meme_vfvdfp&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Chinese movie advice scene — tamil template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980786/Tamil_memes_chinese_movie_advice_meme_vfvdfp.mp4" download="Tamil-memes-chinese movie"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_Akshay_kumar_looking_iec5bg&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Akshay Kumar looking — tamil meme template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980783/Tamil_memes_Akshay_kumar_looking_iec5bg.mp4" download="Tamil-memes-akshaykumar"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_emotional_damage_template_hqbcq9&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Emotional damage — tamil meme template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980789/Tamil_memes_emotional_damage_template_hqbcq9.mp4" download="Tamil-memes-emotional damage"><button class="down">⬇ Download</button></a>
@@ -92,19 +179,19 @@
            data-full-width-responsive="true"></ins>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_aai_hindi_template_h1x8xx&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Aayi meme — tamil template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980783/Tamil_memes_aai_hindi_template_h1x8xx.mp4" download="Tamil-memes-aayi meme"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_trending_laughung_meme_besctl&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Trending laughing meme — tamil template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980802/Tamil_memes_trending_laughung_meme_besctl.mp4" download="Tamil-memes-trending laughing meme"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Sirapaana_aal_nee___Tamil_funny_dialogue___Dank_ri5ee2&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Sirapaana aal nee meme — tamil template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1759290611/Sirapaana_aal_nee___Tamil_funny_dialogue___Dank_ri5ee2.mp4" download="Tamil-memes-sirapana aal nee meme"><button class="down">⬇ Download</button></a>
@@ -148,5 +235,101 @@
     }
   });
 </script>
+
+<script>
+// ── ABOUT TOGGLE ────────────────────────────────────────
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('about-toggle')) {
+    const card = e.target.closest('[data-about]');
+    if (!card) return;
+    const box = card.querySelector('.card-about');
+    if (!box) return;
+    const open = box.classList.toggle('show');
+    e.target.textContent = open ? '▲ About' : '▼ About';
+  }
+});
+
+// ── TAG FILTER ───────────────────────────────────────────
+let activeTag = null;
+
+function filterByTag(tag) {
+  activeTag = tag;
+  const bar = document.getElementById('tag-filter-bar');
+  const allCards = document.querySelectorAll('[data-tags]');
+  allCards.forEach(card => {
+    const tags = (card.dataset.tags || '').toLowerCase().split(',').map(t=>t.trim()).filter(Boolean);
+    if (!tag || tags.includes(tag.toLowerCase())) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  // Mark active chips
+  document.querySelectorAll('.tag-chip').forEach(chip => {
+    chip.classList.toggle('active', chip.dataset.tag === tag);
+  });
+  if (tag && bar) {
+    bar.classList.add('visible');
+    const label = bar.querySelector('#active-tag-label');
+    if (label) label.textContent = '#' + tag;
+  } else if (bar) {
+    bar.classList.remove('visible');
+  }
+}
+
+function clearTagFilter() {
+  filterByTag(null);
+}
+
+// ── INJECT ABOUT + TAG UI INTO CARDS ─────────────────────
+(function buildCards() {
+  document.querySelectorAll('[data-about], [data-tags]').forEach(card => {
+    const aboutText = (card.dataset.about || '').trim();
+    const tagsRaw   = (card.dataset.tags   || '').trim();
+
+    // ── About block ──
+    if (aboutText && !card.querySelector('.card-about')) {
+      const box = document.createElement('div');
+      box.className = 'card-about';
+      box.textContent = aboutText;
+      // Insert after video/iframe but before card-body-like content
+      const ref = card.querySelector('h3, .card-body, .card-title');
+      if (ref) card.insertBefore(box, ref);
+      else card.appendChild(box);
+
+      // Add toggle button inside h3 or card-body
+      const btn = document.createElement('button');
+      btn.className = 'about-toggle';
+      btn.textContent = '▼ About';
+      const h3 = card.querySelector('h3');
+      const cbody = card.querySelector('.card-body');
+      if (h3) h3.insertAdjacentElement('afterend', btn);
+      else if (cbody) cbody.prepend(btn);
+      else card.insertBefore(btn, box.nextSibling);
+    }
+
+    // ── Tags row ──
+    if (tagsRaw && !card.querySelector('.card-tags')) {
+      const tags = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
+      if (!tags.length) return;
+      const row = document.createElement('div');
+      row.className = 'card-tags';
+      tags.forEach(t => {
+        const chip = document.createElement('button');
+        chip.className = 'tag-chip';
+        chip.dataset.tag = t.toLowerCase();
+        chip.textContent = '#' + t;
+        chip.addEventListener('click', () => {
+          if (activeTag === t.toLowerCase()) { clearTagFilter(); }
+          else { filterByTag(t.toLowerCase()); }
+        });
+        row.appendChild(chip);
+      });
+      card.appendChild(row);
+    }
+  });
+})();
+</script>
+
 </body>
 </html>

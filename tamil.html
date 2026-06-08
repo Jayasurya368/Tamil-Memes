@@ -12,6 +12,89 @@
   <meta name="description" content="Download Tamil movie meme templates for free. HD quality, no watermark.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── ABOUT + TAG SYSTEM ───────────────────────────── */
+.card-about {
+  font-size: 11.5px;
+  color: #aaa;
+  background: rgba(255,255,255,.04);
+  border-top: 1px solid rgba(255,255,255,.07);
+  padding: 7px 12px;
+  line-height: 1.5;
+  display: none; /* hidden by default; you can set display:block per-card if desired */
+}
+.card-about.show { display: block; }
+.about-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #888;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 5px;
+  padding: 3px 8px;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: color .2s, border-color .2s;
+  font-family: inherit;
+}
+.about-toggle:hover { color: #ff8c00; border-color: rgba(255,140,0,.4); }
+
+/* ── TAGS ── */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 6px 10px 8px;
+}
+.tag-chip {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  text-transform: lowercase;
+  background: rgba(255,69,0,.12);
+  color: #ff8c00;
+  border: 1px solid rgba(255,140,0,.25);
+  border-radius: 4px;
+  padding: 2px 7px;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+  font-family: inherit;
+}
+.tag-chip:hover { background: rgba(255,69,0,.28); color: #fff; }
+.tag-chip.active { background: #ff4500; color: #fff; border-color: #ff4500; }
+
+/* ── ACTIVE TAG FILTER BAR ── */
+#tag-filter-bar {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,69,0,.1);
+  border: 1px solid rgba(255,69,0,.25);
+  border-radius: 8px;
+  padding: 7px 14px;
+  margin-bottom: 14px;
+  font-size: 12px;
+  color: #ff8c00;
+  font-weight: 600;
+}
+#tag-filter-bar.visible { display: flex; }
+#tag-filter-bar button {
+  margin-left: auto;
+  background: none;
+  border: 1px solid rgba(255,69,0,.4);
+  color: #ff8c00;
+  border-radius: 5px;
+  padding: 2px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .15s;
+}
+#tag-filter-bar button:hover { background: rgba(255,69,0,.2); }
+</style>
 </head>
 <body>
 
@@ -65,57 +148,61 @@
     <span class="badge">Free HD</span>
   </div>
 
-  <div class="results" id="resultList">
+  <div id="tag-filter-bar">
+  <span>Filtering by tag: <strong id="active-tag-label"></strong></span>
+  <button onclick="clearTagFilter()">✕ Clear filter</button>
+</div>
+<div class="results" id="resultList">
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_dei_avan_sethutaanda_nf0bqh&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Dei avan sethutaanda — tamil meme template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980786/Tamil_memes_dei_avan_sethutaanda_nf0bqh.mp4" download="Tamil-memes-dei avan sethutaanda"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_enna_ranga_dialogue_ikzbpa&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Enna ranga — tamil meme template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980790/Tamil_memes_enna_ranga_dialogue_ikzbpa.mp4" download="Tamil-memes-enna ranga"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_enna_vartha_da_sollita_dialogue_wihqdr&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Enna varthada sollita — template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1753066550/Tamil_memes_enna_vartha_da_sollita_dialogue_wihqdr.mp4" download="Tamil-memes-enna varthada sollita"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_ivan_vera_dialogue_wudlaf&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Ivan vera kootnupongada — tamil template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980792/Tamil_memes_ivan_vera_dialogue_wudlaf.mp4" download="Tamil-memes-ivan vera"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_parama_dialogue_aektll&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Dei parama padida — template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980795/Tamil_memes_parama_dialogue_aektll.mp4" download="Tamil-memes-Dei parama padida"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_pdhupettai_dialogue_kjwe0a&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Fatta fatta coming up pudupettai — template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980795/Tamil_memes_pdhupettai_dialogue_kjwe0a.mp4" download="Tamil-memes-fatta fatta coming up"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_meme_rajini_sad_template_msgsbb&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Ellam avan paathupaan — template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980782/Tamil_meme_rajini_sad_template_msgsbb.mp4" download="Tamil-memes-ellam avan paathupaan"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_rajini_sad_meme_i1vxl2&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Rajini sad scene — tamil template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980798/Tamil_memes_rajini_sad_meme_i1vxl2.mp4" download="Tamil-memes-rajini sad scene"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_sivaji_sad_edjalo&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Sivaji movie sad scene — template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980800/Tamil_memes_sivaji_sad_edjalo.mp4" download="Tamil-memes-sivaji movie sad scene"><button class="down">⬇ Download</button></a>
@@ -131,55 +218,55 @@
            data-full-width-responsive="true"></ins>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_sivaji_movie_scene_ouept9&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Bossu da kena dialogue — template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980799/Tamil_memes_sivaji_movie_scene_ouept9.mp4" download="Tamil-memes-Bossu da kena dialogue"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_soli_mudinchu_dialogue_hkrwta&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Soli mudinchu dialogue — template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980801/Tamil_memes_soli_mudinchu_dialogue_hkrwta.mp4" download="Tamil-memes-Soli mudinchu dialogue"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_eppapathalum_soru_r3zhok&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Eppapathulum soru soru — template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980789/Tamil_memes_eppapathalum_soru_r3zhok.mp4" download="Tamil-memes-Eppapathulum soru soru"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_intha_tholvi_dialogue_paqvi7&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Intha tholvi entha alavuku dialogue — template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980791/Tamil_memes_intha_tholvi_dialogue_paqvi7.mp4" download="Tamil-memes-intha tholvi dialogue"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_Rajini_dancing_meme_n37utd&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Oh baby rajini meme — tamil template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980798/Tamil_memes_Rajini_dancing_meme_n37utd.mp4" download="Tamil-memes-oh baby rajini meme"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_rajini_shit_dialogue_elsooq&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Shit rajini meme — tamil template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980803/Tamil_memes_vadivel_looking_llluyy.mp4" download="Tamil-memes-shit rajini meme"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_jailer_movie_rajini_laughing_elqwru&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Rajini laugh jailer meme — tamil template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980792/Tamil_memes_jailer_movie_rajini_laughing_elqwru.mp4" download="Tamil-memes-rajini laugh jailer meme"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://res.cloudinary.com/dlfhjqsgj/video/upload/v1752980786/Tamil_memes_athu_fake_dialogue_sidbsm.mp4" class="video" controls></iframe>
       <h3>Athu fake jailer meme — tamil template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980786/Tamil_memes_athu_fake_dialogue_sidbsm.mp4" download="Tamil-memes-athu fake jailer meme"><button class="down">⬇ Download</button></a>
     </div>
 
-    <div class="o">
+    <div class="o" data-about="" data-tags="">
       <iframe src="https://player.cloudinary.com/embed/?cloud_name=dlfhjqsgj&public_id=Tamil_memes_Mind_blowing_rajini_dialogue_igxt6e&profile=cld-default" class="video" allowfullscreen></iframe>
       <h3>Mind blowing rajini meme — tamil template</h3>
       <a href="https://res.cloudinary.com/dlfhjqsgj/video/upload/fl_attachment/v1752980792/Tamil_memes_Mind_blowing_rajini_dialogue_igxt6e.mp4" download="Tamil-memes-mind blowing rajini meme"><button class="down">⬇ Download</button></a>
@@ -223,5 +310,101 @@
     }
   });
 </script>
+
+<script>
+// ── ABOUT TOGGLE ────────────────────────────────────────
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('about-toggle')) {
+    const card = e.target.closest('[data-about]');
+    if (!card) return;
+    const box = card.querySelector('.card-about');
+    if (!box) return;
+    const open = box.classList.toggle('show');
+    e.target.textContent = open ? '▲ About' : '▼ About';
+  }
+});
+
+// ── TAG FILTER ───────────────────────────────────────────
+let activeTag = null;
+
+function filterByTag(tag) {
+  activeTag = tag;
+  const bar = document.getElementById('tag-filter-bar');
+  const allCards = document.querySelectorAll('[data-tags]');
+  allCards.forEach(card => {
+    const tags = (card.dataset.tags || '').toLowerCase().split(',').map(t=>t.trim()).filter(Boolean);
+    if (!tag || tags.includes(tag.toLowerCase())) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  // Mark active chips
+  document.querySelectorAll('.tag-chip').forEach(chip => {
+    chip.classList.toggle('active', chip.dataset.tag === tag);
+  });
+  if (tag && bar) {
+    bar.classList.add('visible');
+    const label = bar.querySelector('#active-tag-label');
+    if (label) label.textContent = '#' + tag;
+  } else if (bar) {
+    bar.classList.remove('visible');
+  }
+}
+
+function clearTagFilter() {
+  filterByTag(null);
+}
+
+// ── INJECT ABOUT + TAG UI INTO CARDS ─────────────────────
+(function buildCards() {
+  document.querySelectorAll('[data-about], [data-tags]').forEach(card => {
+    const aboutText = (card.dataset.about || '').trim();
+    const tagsRaw   = (card.dataset.tags   || '').trim();
+
+    // ── About block ──
+    if (aboutText && !card.querySelector('.card-about')) {
+      const box = document.createElement('div');
+      box.className = 'card-about';
+      box.textContent = aboutText;
+      // Insert after video/iframe but before card-body-like content
+      const ref = card.querySelector('h3, .card-body, .card-title');
+      if (ref) card.insertBefore(box, ref);
+      else card.appendChild(box);
+
+      // Add toggle button inside h3 or card-body
+      const btn = document.createElement('button');
+      btn.className = 'about-toggle';
+      btn.textContent = '▼ About';
+      const h3 = card.querySelector('h3');
+      const cbody = card.querySelector('.card-body');
+      if (h3) h3.insertAdjacentElement('afterend', btn);
+      else if (cbody) cbody.prepend(btn);
+      else card.insertBefore(btn, box.nextSibling);
+    }
+
+    // ── Tags row ──
+    if (tagsRaw && !card.querySelector('.card-tags')) {
+      const tags = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
+      if (!tags.length) return;
+      const row = document.createElement('div');
+      row.className = 'card-tags';
+      tags.forEach(t => {
+        const chip = document.createElement('button');
+        chip.className = 'tag-chip';
+        chip.dataset.tag = t.toLowerCase();
+        chip.textContent = '#' + t;
+        chip.addEventListener('click', () => {
+          if (activeTag === t.toLowerCase()) { clearTagFilter(); }
+          else { filterByTag(t.toLowerCase()); }
+        });
+        row.appendChild(chip);
+      });
+      card.appendChild(row);
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
