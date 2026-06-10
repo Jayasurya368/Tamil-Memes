@@ -557,6 +557,9 @@
     }
     .count-info span { color: var(--accent); font-weight: 600; }
 
+    /* hide all cards by default; JS will reveal them in batches */
+    #resultList .card { display: none; }
+
     @media (max-width: 500px) {
       .logo-text { display: none; }
       .grid { grid-template-columns: 1fr; gap: 16px; }
@@ -2596,6 +2599,8 @@ l.parentNode.insertBefore(s, l);
   let shown = 0;
   const BATCH = 6;
   let searchMode = false;
+  // tracks which cards are part of the active paginated pool
+  let paginatedPool = [];
 
   function allCards() {
     return Array.from(document.querySelectorAll('#resultList .card'));
@@ -2609,61 +2614,64 @@ l.parentNode.insertBefore(s, l);
     }
   }
 
-  function showBatch() {
-    const cards = allCards();
-    const totalCount = cards.length;
-    const end = Math.min(shown + BATCH, totalCount);
-
-    for (let i = shown; i < end; i++) {
-      cards[i].style.display = 'block';
-      loadIframe(cards[i]);
-    }
-
-    shown = end;
-    document.getElementById('visibleCount').textContent = shown;
-    document.getElementById('totalCount').textContent = totalCount;
-
-    injectFavButtons();
-
+  function updateLoadMoreBtn() {
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     const wrap = loadMoreBtn.closest('.load-more-wrap');
-    wrap.style.display = (shown >= totalCount) ? 'none' : 'flex';
+    wrap.style.display = (!searchMode && shown < paginatedPool.length) ? 'flex' : 'none';
+  }
+
+  function showBatch() {
+    const end = Math.min(shown + BATCH, paginatedPool.length);
+    for (let i = shown; i < end; i++) {
+      paginatedPool[i].style.display = 'block';
+      loadIframe(paginatedPool[i]);
+    }
+    shown = end;
+    document.getElementById('visibleCount').textContent = shown;
+    document.getElementById('totalCount').textContent = paginatedPool.length;
+    injectFavButtons();
+    updateLoadMoreBtn();
   }
 
   function initGrid() {
-    const cards = allCards();
-    cards.forEach(c => { c.style.display = 'none'; });
+    searchMode = false;
+    paginatedPool = allCards();
+    // hide all first
+    paginatedPool.forEach(c => { c.style.display = 'none'; });
     shown = 0;
+    document.getElementById('totalCount').textContent = paginatedPool.length;
+    document.getElementById('visibleCount').textContent = 0;
     showBatch();
   }
 
   document.addEventListener('DOMContentLoaded', function() {
-    stampCardIds(); // stamp all cards with stable IDs first
+    stampCardIds();
     initGrid();
     document.getElementById('loadMoreBtn').addEventListener('click', showBatch);
 
     document.getElementById('searchInput').addEventListener('input', function() {
       const q = this.value.toLowerCase().trim();
       const cards = allCards();
-      const btn = document.getElementById('loadMoreBtn');
 
       if (!q) {
-        searchMode = false;
-        initGrid();
         document.getElementById('emptyState').style.display = 'none';
+        initGrid();
         return;
       }
 
       searchMode = true;
-      btn.closest('.load-more-wrap').style.display = 'none';
+      shown = 0;
       let found = 0;
       cards.forEach(card => {
         const match = card.textContent.toLowerCase().includes(q);
         card.style.display = match ? 'block' : 'none';
         if (match) { loadIframe(card); found++; }
       });
+      document.getElementById('visibleCount').textContent = found;
+      document.getElementById('totalCount').textContent = found;
       document.getElementById('emptyState').style.display = (found === 0) ? 'block' : 'none';
       injectFavButtons();
+      updateLoadMoreBtn();
     });
   });
 
@@ -2696,26 +2704,49 @@ let activeTag = null;
 function filterByTag(tag) {
   activeTag = tag;
   const bar = document.getElementById('tag-filter-bar');
-  const allCards = document.querySelectorAll('[data-tags]');
-  allCards.forEach(card => {
+
+  if (!tag) {
+    // restore pagination
+    document.querySelectorAll('.tag-chip').forEach(chip => chip.classList.remove('active'));
+    if (bar) bar.classList.remove('visible');
+    initGrid();
+    return;
+  }
+
+  // Filter mode: show all matching cards, hide others, bypass pagination
+  searchMode = true;
+  shown = 0;
+  const cards = document.querySelectorAll('#resultList .card');
+  let found = 0;
+  cards.forEach(card => {
     const tags = (card.dataset.tags || '').toLowerCase().split(',').map(t=>t.trim()).filter(Boolean);
-    if (!tag || tags.includes(tag.toLowerCase())) {
-      card.style.display = '';
+    if (tags.includes(tag.toLowerCase())) {
+      card.style.display = 'block';
+      loadIframe(card);
+      found++;
     } else {
       card.style.display = 'none';
     }
   });
-  // Mark active chips
+
+  document.getElementById('visibleCount').textContent = found;
+  document.getElementById('totalCount').textContent = found;
+
   document.querySelectorAll('.tag-chip').forEach(chip => {
     chip.classList.toggle('active', chip.dataset.tag === tag);
   });
-  if (tag && bar) {
+
+  if (bar) {
     bar.classList.add('visible');
     const label = bar.querySelector('#active-tag-label');
     if (label) label.textContent = '#' + tag;
-  } else if (bar) {
-    bar.classList.remove('visible');
   }
+
+  // hide load more in filter mode
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  if (loadMoreBtn) loadMoreBtn.closest('.load-more-wrap').style.display = 'none';
+
+  injectFavButtons();
 }
 
 function clearTagFilter() {
