@@ -350,13 +350,29 @@
         })
       });
       
+      if (!res.ok) throw new Error('API error: ' + res.status);
       const data = await res.json();
       removeTyping();
 
-      // Clean up markdown formatting if Gemini adds backticks by accident
-      let rawText = data.candidates[0].content.parts[0].text.trim();
-      if (rawText.startsWith("```")) {
-        rawText = rawText.replace(/^```json\s*/i, "").replace(/```$/, "").trim();
+      // Support multiple response shapes from the /api/chat proxy:
+      // 1. Raw Gemini passthrough: data.candidates[0].content.parts[0].text
+      // 2. Simple wrapper:        data.reply | data.text | data.message
+      let rawText = '';
+      if (data.candidates && data.candidates[0]) {
+        rawText = data.candidates[0].content.parts[0].text.trim();
+      } else if (typeof data.reply === 'string') {
+        rawText = data.reply.trim();
+      } else if (typeof data.text === 'string') {
+        rawText = data.text.trim();
+      } else if (typeof data.message === 'string') {
+        rawText = data.message.trim();
+      } else {
+        throw new Error('Unknown API response: ' + JSON.stringify(data).slice(0, 120));
+      }
+
+      // Strip markdown code fences if model accidentally adds them
+      if (rawText.startsWith('`')) {
+        rawText = rawText.replace(/^```json\s*/i, '').replace(/```$/, '').trim();
       }
 
       const parsed = JSON.parse(rawText);
@@ -394,12 +410,24 @@
         })
       });
 
+      if (!res.ok) throw new Error('API error: ' + res.status);
       const data = await res.json();
       removeTyping();
 
-      let rawText = data.candidates[0].content.parts[0].text.trim();
-      if (rawText.startsWith("```")) {
-        rawText = rawText.replace(/^```json\s*/i, "").replace(/```$/, "").trim();
+      let rawText = '';
+      if (data.candidates && data.candidates[0]) {
+        rawText = data.candidates[0].content.parts[0].text.trim();
+      } else if (typeof data.reply === 'string') {
+        rawText = data.reply.trim();
+      } else if (typeof data.text === 'string') {
+        rawText = data.text.trim();
+      } else if (typeof data.message === 'string') {
+        rawText = data.message.trim();
+      } else {
+        throw new Error('Unknown API response: ' + JSON.stringify(data).slice(0, 120));
+      }
+      if (rawText.startsWith('`')) {
+        rawText = rawText.replace(/^```json\s*/i, '').replace(/```$/, '').trim();
       }
 
       const parsed = JSON.parse(rawText);
