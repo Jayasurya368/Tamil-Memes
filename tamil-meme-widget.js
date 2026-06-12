@@ -11,7 +11,8 @@
     { title: "Cuteness aga unargirar RJ balaji template", tags: ["cute","RJ balaji","feeling","emotional","sweet"], download: "https://www.mediafire.com/file/n9khghbb3pitpsy/cuteness+aga+thannai+unargirar.mp4/file" },
     { title: "Pengalukaga yenna ivlo template", tags: ["girls","women","sacrifice","frustrated","reaction"], download: "https://www.mediafire.com/file/93gqjyx276s8sx1/pengalukaga+yean+na+ivlo+kasta+padringa.mp4/file" },
     { title: "Romba emotional pesita vijay sethupathi template", tags: ["emotional","vijay sethupathi","sad","feeling","heart"], download: "https://www.mediafire.com/file/1z51xiztoqbeay4/Romba+emotional+ah+pesita+nenju+adekithupa.mp4/file" },
-  ];
+    {title : "Boss motta boss",tags:["Bald,funny,rajinikanth"],download:"https://www.mediafire.com/file/pxj1dssdxiz1zoo/Boss+motta+boss.mp4/file"},
+    ];
 
   /* ── STYLES (scoped with #tmw- prefix) ── */
   const CSS = `
@@ -222,7 +223,9 @@
   panel.setAttribute('role', 'dialog');
   panel.innerHTML = `
     <div class="tmw-header">
-      <div class="tmw-avatar">🎭</div>
+      <div class="logo-icon">
+    <img src="favicon.ico" alt="Logo" class="logo-img">
+    </div>
       <div>
         <p class="tmw-hname">Tamil Meme AI</p>
         <span class="tmw-hstatus"><span class="tmw-dot"></span>Online</span>
@@ -449,7 +452,7 @@
     } catch(e) { 
       console.error(e);
       removeTyping(); 
-      addBot('Oops! Something went wrong. Try again 😅'); 
+      addBot('Oops! Something went wrong.Wait pannunga tholare'); 
     }
   }
 
