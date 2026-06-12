@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap');
 
 :root {
-  --bg: #0d0d0d;
-  --surface: #161616;
-  --card: #1c1c1c;
-  --border: #2a2a2a;
+  --bg: #ffffff;
+  --surface: #f7f7f8;
+  --card: #ffffff;
+  --border: #e6e6e6;
   --accent: #ff4500;
   --accent2: #ff8c00;
-  --text: #f0f0f0;
-  --muted: #888;
+  --text: #1a1a1a;
+  --muted: #777;
   --radius: 14px;
 }
 
@@ -70,7 +70,7 @@ body {
 header {
   position: sticky; top: 0;
   z-index: 100;
-  background: rgba(13,13,13,.92);
+  background: rgba(255,255,255,.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   padding: 0 20px;
@@ -132,7 +132,7 @@ header {
   font-family: 'Syne', sans-serif;
   font-size: 20px;
   font-weight: 800;
-  background: linear-gradient(90deg, #fff 40%, var(--accent2));
+  background: linear-gradient(90deg, #1a1a1a 40%, var(--accent2));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   white-space: nowrap;
@@ -228,7 +228,7 @@ main {
   font-family: 'Syne', sans-serif;
   font-size: 28px;
   font-weight: 800;
-  background: linear-gradient(90deg, #fff 40%, var(--accent2));
+  background: linear-gradient(90deg, #1a1a1a 40%, var(--accent2));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -275,6 +275,7 @@ main {
   border-radius: var(--radius);
   overflow: hidden;
   transition: transform .2s, border-color .2s, box-shadow .2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
   display: none;
 }
 .card:hover {
@@ -342,6 +343,7 @@ main {
   display: flex;
   flex-direction: column;
   transition: transform .2s, border-color .2s, box-shadow .2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
   /* reset old values */
   margin: 0 !important;
   padding: 0 !important;
@@ -469,7 +471,7 @@ main {
 }
 .feedback-section textarea {
   width: 100%;
-  background: var(--bg);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
   color: var(--text);
@@ -523,7 +525,7 @@ main {
 .txt input,
 .txt textarea {
   width: 100%;
-  background: var(--bg);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
   color: var(--text);
