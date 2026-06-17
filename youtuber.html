@@ -1,106 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Youtuber Memes | Tamil Memes</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="manifest" href="site.webmanifest">
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
-  <meta name="description" content="Download Tamil YouTuber meme templates for free. HD quality, no watermark.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <script src="https://hecticwelcomingassociation.com/f8/77/f2/f877f26e187b57dd46cb1cae9f181428.js"></script>
-<style>
-/* ── ABOUT + TAG SYSTEM ───────────────────────────── */
-.card-about {
-  font-size: 11.5px;
-  color: #666;
-  background: rgba(0,0,0,.03);
-  border-top: 1px solid rgba(0,0,0,.06);
-  padding: 7px 12px;
-  line-height: 1.5;
-  display: none; /* hidden by default; you can set display:block per-card if desired */
-}
-.card-about.show { display: block; }
-.about-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 10.5px;
-  font-weight: 600;
-  color: #777;
-  background: rgba(0,0,0,.04);
-  border: 1px solid rgba(0,0,0,.07);
-  border-radius: 5px;
-  padding: 3px 8px;
-  cursor: pointer;
-  margin-top: 6px;
-  transition: color .2s, border-color .2s;
-  font-family: inherit;
-}
-.about-toggle:hover { color: #ff8c00; border-color: rgba(255,140,0,.4); }
-
-/* ── TAGS ── */
-.card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  padding: 6px 10px 8px;
-}
-.tag-chip {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .3px;
-  text-transform: lowercase;
-  background: rgba(255,69,0,.12);
-  color: #ff8c00;
-  border: 1px solid rgba(255,140,0,.25);
-  border-radius: 4px;
-  padding: 2px 7px;
-  cursor: pointer;
-  transition: background .15s, color .15s;
-  font-family: inherit;
-}
-.tag-chip:hover { background: rgba(255,69,0,.28); color: #fff; }
-.tag-chip.active { background: #ff4500; color: #fff; border-color: #ff4500; }
-
-/* ── ACTIVE TAG FILTER BAR ── */
-#tag-filter-bar {
-  display: none;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255,69,0,.1);
-  border: 1px solid rgba(255,69,0,.25);
-  border-radius: 8px;
-  padding: 7px 14px;
-  margin-bottom: 14px;
-  font-size: 12px;
-  color: #ff8c00;
-  font-weight: 600;
-}
-#tag-filter-bar.visible { display: flex; }
-#tag-filter-bar button {
-  margin-left: auto;
-  background: none;
-  border: 1px solid rgba(255,69,0,.4);
-  color: #ff8c00;
-  border-radius: 5px;
-  padding: 2px 10px;
-  font-size: 11px;
-  cursor: pointer;
-  font-family: inherit;
-  transition: background .15s;
-}
-#tag-filter-bar button:hover { background: rgba(255,69,0,.2); }
-</style>
+<meta charset="UTF-8">
+<title>Youtuber Memes | Tamil Memes</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<meta name="description" content="Download Tamil YouTuber meme templates for free. HD quality, no watermark.">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://player.vimeo.com">
+<link rel="preconnect" href="https://player.cloudinary.com">
+<link rel="stylesheet" href="assets/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://hecticwelcomingassociation.com/f8/77/f2/f877f26e187b57dd46cb1cae9f181428.js" defer></script>
 </head>
-<body>
+<body data-category="youtuber" data-per-page="10">
 
-<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
-
+<div class="overlay" id="overlay" data-action="close-sidebar"></div>
 <div class="sidebar" id="sidebar">
   <a href="index.html"><span class="icon"></span> Home</a>
   <a href="vadivel.html"><span class="icon"></span> Vadivelu Memes</a>
@@ -110,13 +29,10 @@
   <a href="badword.html"><span class="icon"></span> Bad Word Memes</a>
   <a href="feedback.html" style="margin-top:auto"><span class="icon"></span> Feedback</a>
 </div>
-
 <header>
-  <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+  <button class="menu-btn" type="button" data-action="toggle-sidebar">☰</button>
   <a class="logo-area" href="index.html">
-    <div class="logo-icon">
-    <img src="favicon.ico" alt="Logo" class="logo-img">
-    </div>
+    <div class="logo-icon"><img src="favicon.ico" alt="Logo" class="logo-img" width="36" height="36"></div>
     <span class="logo-text">Tamil Memes</span>
   </a>
   <div class="search-container">
@@ -126,462 +42,44 @@
     </div>
   </div>
 </header>
-
-<div class="announce">▶️ Tamil YouTuber Meme Templates — JK, GP Muthu, Sudhagar & more!</div>
-
+<div class="announce">▶️ Tamil YouTuber Meme Templates — JK, GP Muthu, Sudhagar &amp; more!</div>
 <main>
-
-  <!--Ad placement 1-->
-
-<script>
-  atOptions = {
-    'key' : '05fa0fb0e4ce305cd4b9218a631436ec',
-    'format' : 'iframe',
-    'height' : 50,
-    'width' : 320,
-    'params' : {}
-  };
-</script>
-<script src="https://hecticwelcomingassociation.com/05fa0fb0e4ce305cd4b9218a631436ec/invoke.js"></script>
-
+  <!-- Ad placement 1 -->
+  <script src="assets/ads-config.js" defer></script>
+  <script src="https://hecticwelcomingassociation.com/05fa0fb0e4ce305cd4b9218a631436ec/invoke.js" defer></script>
 
   <div class="page-title-bar">
     <h1>▶️ Youtuber Memes</h1>
     <p>Viral Tamil YouTuber meme templates — free HD download</p>
   </div>
-
   <div class="section-header">
     <span class="section-label">All Templates</span>
     <span class="badge">Free HD</span>
   </div>
-
+  <div class="count-info">Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> memes</div>
   <div id="tag-filter-bar">
   <span>Filtering by tag: <strong id="active-tag-label"></strong></span>
-  <button onclick="clearTagFilter()">✕ Clear filter</button>
+  <button type="button" data-action="clear-tag-filter">✕ Clear filter</button>
 </div>
-<div class="results" id="resultList">
+  <!-- Ad placement 2 -->
+<script async data-cfasync="false" src="https://pl29731506.effectivecpmnetwork.com/488c5b3dd4416d301a0ef5fc9475285e/invoke.js"></script>
+<div id="container-488c5b3dd4416d301a0ef5fc9475285e"></div>
 
-  <!--Ad placement 2-->
-  <script async="async" data-cfasync="false" src="https://pl29731506.effectivecpmnetwork.com/488c5b3dd4416d301a0ef5fc9475285e/invoke.js"></script>
-  <div id="container-488c5b3dd4416d301a0ef5fc9475285e"></div>
-
-  <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=yeah_tube_meme_z77zwn" class="video" allowfullscreen></iframe>
-      <h3>Yeah Tube youtuber dialogue template</h3>
-      <a href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1778065995/yeah_tube_meme_z77zwn.mp4" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1190704025?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Avana solli niruthungada meme template</h3>
-      <a href="https://www.mediafire.com/file/ksca2tq5hlqo0dq/Avana+Solli+Niruthungada.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="JK Tamil: A Tamil lifestyle vlogger with 1.1 million subscribers as of early 2026.  He is currently on a temporary hiatus from uploading.  His real name and age are not publicly documented in the available context." data-tags="Jk,Youtuber">
-      <iframe data-src="https://player.vimeo.com/video/1200506026?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Rightu ala vidra funda_JK</h3>
-      <a href="https://www.mediafire.com/file/et2xgq71wfyywtf/Rightu+ala+vidra+funda.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="Gopi,Suthagar">
-      <iframe data-src="https://player.vimeo.com/video/1198690976?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>namma than paridhabangal dialogue_tamilmemes.co.in</h3>
-      <a href="https://www.mediafire.com/file/8gfagt7zba0d3cf/namma+than+paridhabangal+dialogue.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="Youtuber">
-      <iframe data-src="https://player.vimeo.com/video/1195291524?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Depression latest meme influencer template</h3>
-      <a href="https://www.mediafire.com/file/ftwxzx0sz9n0yr0/depression+latest+meme.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="Kaathadi Club is a Tamil entertainment YouTube channel known for producing comedy sketches, short films, and fun moments featuring a recurring group of friends. The channel focuses on relatable humor, unexpected twists, and lighthearted content designed to bring joy and stress relief to viewers." data-tags="Kaathadi club">
-      <iframe data-src="https://player.vimeo.com/video/1194938747?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Novv thappa iruku na_Kaathadi club_template</h3>
-      <a href="https://www.mediafire.com/file/awskfsg5jimgr0x/novv+thappa+iruku+na.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="Youtuber">
-      <iframe data-src="https://player.vimeo.com/video/1194938749?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Sotha than thingiriya illa _youtuber meme template</h3>
-      <a href="https://www.mediafire.com/file/d7cisnr1x0c9b9f/sotha+than+thingriya.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="Youtuber">
-      <iframe data-src="https://player.vimeo.com/video/1191765427?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Ennada kodurama iruku_comedy tiktok meme template</h3>
-      <a href="https://www.mediafire.com/file/k2gvwwf8dlzlsoi/ena+da+kodurama+iruku.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="JK Tamil: A Tamil lifestyle vlogger with 1.1 million subscribers as of early 2026.  He is currently on a temporary hiatus from uploading.  His real name and age are not publicly documented in the available context." data-tags="JK,Youtuber">
-      <iframe data-src="https://player.vimeo.com/video/1191761289?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Ethuku ithellam youtuber jk renowned meme template</h3>
-      <a href="https://www.mediafire.com/file/1asx5za4cz9k1do/Edhuku+ithellam+youtuber+JK+meme+template.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="paridhabangal,Gopi,Sudhagar">
-      <iframe data-src="https://player.vimeo.com/video/1194299751?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Enna enna soldran paarunga_paridhabangal meme template</h3>
-      <a href="https://www.mediafire.com/file/po23nrqgg9su9jy/enna+enna+solran+paarunga.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="Youtuber">
-      <iframe data-src="https://player.vimeo.com/video/1193900767?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Its very wrong bro_Dr.diwagar meme template</h3>
-      <a href="https://www.mediafire.com/file/j6x9ru62es8b0si/Its+very+wrong+bro.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1193447124?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Thiruttu paiyada nee template</h3>
-      <a href="https://www.mediafire.com/file/z5kl98gld4w80c1/Thiruttu+paiyada+nee.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1193447125?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Kosu na kadikum template</h3>
-      <a href="https://www.mediafire.com/file/53vvkteet3p6mwr/kosu_na_kadikum_pattasu_na_vedikum.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1193447123?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Thar perumai meme template</h3>
-      <a href="https://www.mediafire.com/file/zzpajig82tbcrji/tharperumai+meme.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1192920545?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Kambi katti kondu irukiraargal template</h3>
-      <a href="https://www.mediafire.com/file/a9p8fzxl0oshjeg/Kambi+katti+kondu+irukirargal.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1192920544?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Nippon paint comedy template</h3>
-      <a href="https://www.mediafire.com/file/895znytqzbsxx2s/nippon+comedy+comedy+template.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1192920546?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Kiraga bundaiya tamil meme template</h3>
-      <a href="https://www.mediafire.com/file/8a5qje1pwc66v06/kiraga+bundhaiaya+pesitu+irukaan.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1192920565?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Pengalukaga yenna ivlo template</h3>
-      <a href="https://www.mediafire.com/file/93gqjyx276s8sx1/pengalukaga+yean+na+ivlo+kasta+padringa.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1192757564?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Sofa boy meme tamil template</h3>
-      <a href="https://www.mediafire.com/file/tp6qb0db3hz3cmi/Sofa+boy+meme.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1192757566?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Dai loosu panda poda template</h3>
-      <a href="https://www.mediafire.com/file/v8b5purgl5p4md9/Dei+loosu+panda+poda++_+Tamil+meme+template.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1191403652?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Anna vitru na meme template</h3>
-      <a href="https://www.mediafire.com/file/ga4ey7kkt3glg9n/Anna_vitruna_meme_template_tamil%255B1%255D.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1191403560?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Poovu poovu sentha narumanam meme template</h3>
-      <a href="https://www.mediafire.com/file/o3k184ui7gws0vu/poo_uh_poo_uh_sentha_narumanam_neeyum_naanum_sentha_thirumanam.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1190853445?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Endra ithu meme template</h3>
-      <a href="https://www.mediafire.com/file/zpmr7iz4o1glfew/Endra+Ithu.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1190743191?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>summa na prank na ithu meme template</h3>
-      <a href="https://www.mediafire.com/file/b75naocmt2ya2oz/summa+na+prank+na+ithu.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1190743155?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>sootha moodra funda meme template</h3>
-      <a href="https://www.mediafire.com/file/ckur6jiobopq086/sootha+moodra+puda.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1190743091?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>aayi vara maari iruku meme template</h3>
-      <a href="https://www.mediafire.com/file/il91q1g6wavck2w/aayi+vara+maari+iruku.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1190743094?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>anna papa love meme template</h3>
-      <a href="https://www.mediafire.com/file/uey7rccyc8nqmas/anna+papa+love.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="JK Tamil: A Tamil lifestyle vlogger with 1.1 million subscribers as of early 2026.  He is currently on a temporary hiatus from uploading.  His real name and age are not publicly documented in the available context." data-tags="JK,Youtuber">
-      <iframe data-src="https://player.vimeo.com/video/1190700624?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Mavane anga mattum JK meme template</h3>
-      <a href="https://www.mediafire.com/file/777hvzf6jq6q5kq/Mavane+Anga+Mattum+Naa+Irunthurankanum+Jk+Meme.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1190700682?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Vaitherichal Sivakarthikeyan meme template</h3>
-      <a href="https://www.mediafire.com/file/xoyodhd8bdieikl/Vaitherichal+Meme+Sivakarthikeyan.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1190700622?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Intha siru balaganidam Ramar meme template</h3>
-      <a href="https://www.mediafire.com/file/nn2liwrt3tbc18u/Intha+Siru+Balaganidam+Ramar+Meme.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1190700670?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Saithana pethu vitrukanunga meme template</h3>
-      <a href="https://www.mediafire.com/file/sackcvse0eag738/Saithana++Pethu+Vitrukanunga+Meme.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1190700623?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Ennaya mattum ipdi adichurunthanu vacika meme</h3>
-      <a href="https://www.mediafire.com/file/qwzhwi1rgt32gq7/Ennaya+Mattum+Ipdi+Adichurunthanu+Vacika+Meme.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Ithu_Onaku_Oru_Perumaiya_t7pwmi" class="video" allowfullscreen></iframe>
-      <h3>Ithu onaku oru perumaiyada serial actor template</h3>
-      <a href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777897835/Ithu_Onaku_Oru_Perumaiya_t7pwmi.mp4" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Gopi_Suthagar_diyqz9" class="video" allowfullscreen></iframe>
-      <h3>Gopi and Sudhagar paridhabangal template</h3>
-      <a href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777897904/Gopi_Suthagar_diyqz9.mp4" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Jack_And_Chill_Youtuber_Comedy_Scene_qnm4ns" class="video" allowfullscreen></iframe>
-      <h3>Jack and Chill youtuber meme template</h3>
-      <a href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777897876/Jack_And_Chill_Youtuber_Comedy_Scene_qnm4ns.mp4" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Jump_Cats_xxpagm" class="video" allowfullscreen></iframe>
-      <h3>Jump cats comedy scene Hari Baskar template</h3>
-      <a href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777897941/Jump_Cats_xxpagm.mp4" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Paithiiyonga_jzb5vc" class="video" allowfullscreen></iframe>
-      <h3>Paithiyonga TikToker meme template</h3>
-      <a href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777897974/Paithiiyonga_jzb5vc.mp4" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Solvathellam_Unmaiy_vouzrq" class="video" allowfullscreen></iframe>
-      <h3>Solvathellam unmai meme template</h3>
-      <a href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777897967/Solvathellam_Unmaiy_vouzrq.mp4" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=R15_dwxynw" class="video" allowfullscreen></iframe>
-      <h3>R15 influencer comedy meme template</h3>
-      <a href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777897986/R15_dwxynw.mp4" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="JK Tamil: A Tamil lifestyle vlogger with 1.1 million subscribers as of early 2026.  He is currently on a temporary hiatus from uploading.  His real name and age are not publicly documented in the available context." data-tags="Jk,Youtuber">
-      <iframe data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Youtuber_Jk_awzkov" class="video" allowfullscreen></iframe>
-      <h3>Youtuber JK comedy meme template</h3>
-      <a href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777898194/Youtuber_Jk_awzkov.mp4" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Naan_Antha_Maari_Paiyan-Meme_r2hkiy" class="video" allowfullscreen></iframe>
-      <h3>Naa antha maari paiyan illaka influencer meme</h3>
-      <a href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777977956/Naan_Antha_Maari_Paiyan-Meme_r2hkiy.mp4" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Amanagundi_Ya_Nipaan_Meme_uuk40g" class="video" allowfullscreen></iframe>
-      <h3>Amanakundiya poi roadla nippan sir template</h3>
-      <a href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777977964/Amanagundi_Ya_Nipaan_Meme_uuk40g.mp4" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.cloudinary.com/embed/?cloud_name=dh5jn77fn&public_id=Enna_Pannitanu_Pallu_Meme_iohfxh" class="video" allowfullscreen></iframe>
-      <h3>Nee enna pannitanu pallu meme template</h3>
-      <a href="https://res.cloudinary.com/dh5jn77fn/video/upload/fl_attachment/f_auto/v1777977985/Enna_Pannitanu_Pallu_Meme_iohfxh.mp4" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1190704026?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Yeanda pesama iruka maatiyada meme template</h3>
-      <a href="https://www.mediafire.com/file/8f1b9wk3szhwnif/Pesamaye+Iruka+Maatiyada.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-
-
-    <div class="para">
-      <p>⚠️ <strong>Disclaimer:</strong> Copyright Disclaimer under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, commentary, news reporting, teaching, scholarship, and research. This is a non-profit, educational platform. To request removal of any clip, email <mark>tamilmemes.tech1@gmail.com</mark> and it will be removed promptly.</p>
-    </div>
-
-  </div><!-- /results -->
-
+  <div class="results" id="resultList"></div>
+  <div class="pagination-wrap" id="paginationWrap">
+  <button class="page-btn" id="prevPageBtn" type="button">‹ Previous</button>
+  <div class="page-numbers" id="pageNumbers"></div>
+  <button class="page-btn" id="nextPageBtn" type="button">Next ›</button>
+</div>
+  <div class="para">
+  <p>⚠️ <strong>Disclaimer:</strong> Copyright Disclaimer under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, commentary, news reporting, teaching, scholarship, and research. This is a non-profit, educational platform. To request removal of any clip, email <mark>tamilmemes.tech1@gmail.com</mark> and it will be removed promptly.</p>
+</div>
 </main>
-
 <footer>
   <p>© 2024 TamilMemes.co.in · <strong>Copyright Disclaimer</strong>: Under Section 107 of the Copyright Act 1976, fair use applies. Non-profit educational platform. To request clip removal, email <a href="mailto:tamilmemes.tech1@gmail.com">tamilmemes.tech1@gmail.com</a>.</p>
 </footer>
-
-
-<script>
-  function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('active');
-    document.getElementById('overlay').classList.toggle('active');
-  }
-  function closeSidebar() {
-    document.getElementById('sidebar').classList.remove('active');
-    document.getElementById('overlay').classList.remove('active');
-  }
-
-  const searchInput = document.getElementById("searchInput");
-  const resultList = document.getElementById("resultList");
-  const items = resultList.getElementsByTagName("div");
-
-  searchInput.addEventListener("keyup", function () {
-    const filter = searchInput.value.toLowerCase();
-    for (let i = 0; i < items.length; i++) {
-      const item = items[i];
-      const text = item.textContent.toLowerCase();
-      item.style.display = text.includes(filter) ? "" : "none";
-    }
-  });
-</script>
-
-<script>
-// ── ABOUT TOGGLE ────────────────────────────────────────
-document.addEventListener('click', function(e) {
-  if (e.target.classList.contains('about-toggle')) {
-    const card = e.target.closest('[data-about]');
-    if (!card) return;
-    const box = card.querySelector('.card-about');
-    if (!box) return;
-    const open = box.classList.toggle('show');
-    e.target.textContent = open ? '▲ About' : '▼ About';
-  }
-});
-
-// ── TAG FILTER ───────────────────────────────────────────
-let activeTag = null;
-
-function filterByTag(tag) {
-  activeTag = tag;
-  const bar = document.getElementById('tag-filter-bar');
-  const allCards = document.querySelectorAll('[data-tags]');
-  allCards.forEach(card => {
-    const tags = (card.dataset.tags || '').toLowerCase().split(',').map(t=>t.trim()).filter(Boolean);
-    if (!tag || tags.includes(tag.toLowerCase())) {
-      card.style.display = '';
-    } else {
-      card.style.display = 'none';
-    }
-  });
-  // Mark active chips
-  document.querySelectorAll('.tag-chip').forEach(chip => {
-    chip.classList.toggle('active', chip.dataset.tag === tag);
-  });
-  if (tag && bar) {
-    bar.classList.add('visible');
-    const label = bar.querySelector('#active-tag-label');
-    if (label) label.textContent = '#' + tag;
-  } else if (bar) {
-    bar.classList.remove('visible');
-  }
-}
-
-function clearTagFilter() {
-  filterByTag(null);
-}
-
-// ── INJECT ABOUT + TAG UI INTO CARDS ─────────────────────
-(function buildCards() {
-  document.querySelectorAll('[data-about], [data-tags]').forEach(card => {
-    const aboutText = (card.dataset.about || '').trim();
-    const tagsRaw   = (card.dataset.tags   || '').trim();
-
-    // ── About block ──
-    if (aboutText && !card.querySelector('.card-about')) {
-      const box = document.createElement('div');
-      box.className = 'card-about';
-      box.textContent = aboutText;
-      // Insert after video/iframe but before card-body-like content
-      const ref = card.querySelector('h3, .card-body, .card-title');
-      if (ref) card.insertBefore(box, ref);
-      else card.appendChild(box);
-
-      // Add toggle button inside h3 or card-body
-      const btn = document.createElement('button');
-      btn.className = 'about-toggle';
-      btn.textContent = '▼ About';
-      const h3 = card.querySelector('h3');
-      const cbody = card.querySelector('.card-body');
-      if (h3) h3.insertAdjacentElement('afterend', btn);
-      else if (cbody) cbody.prepend(btn);
-      else card.insertBefore(btn, box.nextSibling);
-    }
-
-    // ── Tags row ──
-    if (tagsRaw && !card.querySelector('.card-tags')) {
-      const tags = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
-      if (!tags.length) return;
-      const row = document.createElement('div');
-      row.className = 'card-tags';
-      tags.forEach(t => {
-        const chip = document.createElement('button');
-        chip.className = 'tag-chip';
-        chip.dataset.tag = t.toLowerCase();
-        chip.textContent = '#' + t;
-        chip.addEventListener('click', () => {
-          if (activeTag === t.toLowerCase()) { clearTagFilter(); }
-          else { filterByTag(t.toLowerCase()); }
-        });
-        row.appendChild(chip);
-      });
-      card.appendChild(row);
-    }
-  });
-})();
-</script>
-
-<script>
-/* ── LAZY IFRAME LOADER (IntersectionObserver) ── */
-(function() {
-  function loadIframe(el) {
-    if (el.dataset.src) {
-      el.src = el.dataset.src;
-      delete el.dataset.src;
-    }
-  }
-  var io = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) {
-        loadIframe(e.target);
-        io.unobserve(e.target);
-      }
-    });
-  }, { rootMargin: "200px" });
-  document.querySelectorAll("iframe[data-src]").forEach(function(f) { io.observe(f); });
-})();
-</script>
+<script src="assets/site-ui.js" defer></script>
+<script src="assets/memes-data.js" defer></script>
+<script src="assets/meme-engine.js" defer></script>
 </body>
 </html>

@@ -1,105 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Abroad Movies Memes | Tamil Memes</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="manifest" href="site.webmanifest">
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
-  <meta name="description" content="Download Abroad movie meme templates for free. HD quality, no watermark.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-/* ── ABOUT + TAG SYSTEM ───────────────────────────── */
-.card-about {
-  font-size: 11.5px;
-  color: #666;
-  background: rgba(0,0,0,.03);
-  border-top: 1px solid rgba(0,0,0,.06);
-  padding: 7px 12px;
-  line-height: 1.5;
-  display: none; /* hidden by default; you can set display:block per-card if desired */
-}
-.card-about.show { display: block; }
-.about-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 10.5px;
-  font-weight: 600;
-  color: #777;
-  background: rgba(0,0,0,.04);
-  border: 1px solid rgba(0,0,0,.07);
-  border-radius: 5px;
-  padding: 3px 8px;
-  cursor: pointer;
-  margin-top: 6px;
-  transition: color .2s, border-color .2s;
-  font-family: inherit;
-}
-.about-toggle:hover { color: #ff8c00; border-color: rgba(255,140,0,.4); }
-
-/* ── TAGS ── */
-.card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  padding: 6px 10px 8px;
-}
-.tag-chip {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .3px;
-  text-transform: lowercase;
-  background: rgba(255,69,0,.12);
-  color: #ff8c00;
-  border: 1px solid rgba(255,140,0,.25);
-  border-radius: 4px;
-  padding: 2px 7px;
-  cursor: pointer;
-  transition: background .15s, color .15s;
-  font-family: inherit;
-}
-.tag-chip:hover { background: rgba(255,69,0,.28); color: #fff; }
-.tag-chip.active { background: #ff4500; color: #fff; border-color: #ff4500; }
-
-/* ── ACTIVE TAG FILTER BAR ── */
-#tag-filter-bar {
-  display: none;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255,69,0,.1);
-  border: 1px solid rgba(255,69,0,.25);
-  border-radius: 8px;
-  padding: 7px 14px;
-  margin-bottom: 14px;
-  font-size: 12px;
-  color: #ff8c00;
-  font-weight: 600;
-}
-#tag-filter-bar.visible { display: flex; }
-#tag-filter-bar button {
-  margin-left: auto;
-  background: none;
-  border: 1px solid rgba(255,69,0,.4);
-  color: #ff8c00;
-  border-radius: 5px;
-  padding: 2px 10px;
-  font-size: 11px;
-  cursor: pointer;
-  font-family: inherit;
-  transition: background .15s;
-}
-#tag-filter-bar button:hover { background: rgba(255,69,0,.2); }
-</style>
+<meta charset="UTF-8">
+<title>Abroad Movies Memes | Tamil Memes</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<meta name="description" content="Download Abroad movie meme templates for free. HD quality, no watermark.">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://player.vimeo.com">
+<link rel="preconnect" href="https://player.cloudinary.com">
+<link rel="stylesheet" href="assets/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-category="abroad" data-per-page="10">
 
-<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
-
+<div class="overlay" id="overlay" data-action="close-sidebar"></div>
 <div class="sidebar" id="sidebar">
   <a href="index.html"><span class="icon"></span> Home</a>
   <a href="vadivel.html"><span class="icon"></span> Vadivelu Memes</a>
@@ -109,13 +28,10 @@
   <a href="badword.html"><span class="icon"></span> Bad Word Memes</a>
   <a href="feedback.html" style="margin-top:auto"><span class="icon"></span> Feedback</a>
 </div>
-
 <header>
-  <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+  <button class="menu-btn" type="button" data-action="toggle-sidebar">☰</button>
   <a class="logo-area" href="index.html">
-    <div class="logo-icon">
-    <img src="favicon.ico" alt="Logo" class="logo-img">
-    </div>
+    <div class="logo-icon"><img src="favicon.ico" alt="Logo" class="logo-img" width="36" height="36"></div>
     <span class="logo-text">Tamil Memes</span>
   </a>
   <div class="search-container">
@@ -125,203 +41,44 @@
     </div>
   </div>
 </header>
-
-<div class="announce">🌍 Abroad Movie Meme Templates — Bollywood, Hollywood & more in Tamil style!</div>
-
-
+<div class="announce">🌍 Abroad Movie Meme Templates — Bollywood, Hollywood &amp; more in Tamil style!</div>
 <main>
+  <!-- Ad placement 1 -->
+  <script src="assets/ads-config.js" defer></script>
+  <script src="https://hecticwelcomingassociation.com/05fa0fb0e4ce305cd4b9218a631436ec/invoke.js" defer></script>
 
   <div class="page-title-bar">
     <h1>🎬 Abroad Movies</h1>
-    <p>International & Bollywood meme templates used in Tamil meme culture — free HD download</p>
+    <p>International &amp; Bollywood meme templates used in Tamil meme culture — free HD download</p>
   </div>
-
-  <!--Ad placement 1-->
-
-  <script>
-  atOptions = {
-    'key' : '05fa0fb0e4ce305cd4b9218a631436ec',
-    'format' : 'iframe',
-    'height' : 50,
-    'width' : 320,
-    'params' : {}
-  };
-</script>
-<script src="https://hecticwelcomingassociation.com/05fa0fb0e4ce305cd4b9218a631436ec/invoke.js"></script>
-
-
   <div class="section-header">
     <span class="section-label">All Templates</span>
     <span class="badge">Free HD</span>
   </div>
-
+  <div class="count-info">Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> memes</div>
   <div id="tag-filter-bar">
   <span>Filtering by tag: <strong id="active-tag-label"></strong></span>
-  <button onclick="clearTagFilter()">✕ Clear filter</button>
+  <button type="button" data-action="clear-tag-filter">✕ Clear filter</button>
 </div>
-<div class="results" id="resultList">
+  <!-- Ad placement 2 -->
+<script async data-cfasync="false" src="https://pl29731506.effectivecpmnetwork.com/488c5b3dd4416d301a0ef5fc9475285e/invoke.js"></script>
+<div id="container-488c5b3dd4416d301a0ef5fc9475285e"></div>
 
-  <!--Ad placement 2-->
-  <script async="async" data-cfasync="false" src="https://pl29731506.effectivecpmnetwork.com/488c5b3dd4416d301a0ef5fc9475285e/invoke.js"></script>
-  <div id="container-488c5b3dd4416d301a0ef5fc9475285e"></div>
-
-    <div class="o" data-about="" data-tags="">
-      <iframe data-src="https://player.vimeo.com/video/1201131938?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="video" allowfullscreen></iframe>
-      <h3>Zias laughing meme template</h3>
-      <a href="https://www.mediafire.com/file/bgl0elgqtf3pat7/Zias+laughing+meme+template.mp4/file" download><button class="down">⬇ Download</button></a>
-    </div>
-
-    <div class="para">
-      <p>⚠️ <strong>Disclaimer:</strong> Copyright Disclaimer under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, commentary, news reporting, teaching, scholarship, and research. This is a non-profit, educational platform. To request removal of any clip, email <mark>tamilmemes.tech1@gmail.com</mark> and it will be removed promptly.</p>
-    </div>
-
-  </div><!-- /results -->
-
+  <div class="results" id="resultList"></div>
+  <div class="pagination-wrap" id="paginationWrap">
+  <button class="page-btn" id="prevPageBtn" type="button">‹ Previous</button>
+  <div class="page-numbers" id="pageNumbers"></div>
+  <button class="page-btn" id="nextPageBtn" type="button">Next ›</button>
+</div>
+  <div class="para">
+  <p>⚠️ <strong>Disclaimer:</strong> Copyright Disclaimer under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, commentary, news reporting, teaching, scholarship, and research. This is a non-profit, educational platform. To request removal of any clip, email <mark>tamilmemes.tech1@gmail.com</mark> and it will be removed promptly.</p>
+</div>
 </main>
-
 <footer>
   <p>© 2024 TamilMemes.co.in · <strong>Copyright Disclaimer</strong>: Under Section 107 of the Copyright Act 1976, fair use applies. Non-profit educational platform. To request clip removal, email <a href="mailto:tamilmemes.tech1@gmail.com">tamilmemes.tech1@gmail.com</a>.</p>
 </footer>
-
-
-<script>
-  function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('active');
-    document.getElementById('overlay').classList.toggle('active');
-  }
-  function closeSidebar() {
-    document.getElementById('sidebar').classList.remove('active');
-    document.getElementById('overlay').classList.remove('active');
-  }
-
-  const searchInput = document.getElementById("searchInput");
-  const resultList = document.getElementById("resultList");
-  const items = resultList.getElementsByTagName("div");
-
-  searchInput.addEventListener("keyup", function () {
-    const filter = searchInput.value.toLowerCase();
-    for (let i = 0; i < items.length; i++) {
-      const item = items[i];
-      const text = item.textContent.toLowerCase();
-      item.style.display = text.includes(filter) ? "" : "none";
-    }
-  });
-</script>
-
-<script>
-// ── ABOUT TOGGLE ────────────────────────────────────────
-document.addEventListener('click', function(e) {
-  if (e.target.classList.contains('about-toggle')) {
-    const card = e.target.closest('[data-about]');
-    if (!card) return;
-    const box = card.querySelector('.card-about');
-    if (!box) return;
-    const open = box.classList.toggle('show');
-    e.target.textContent = open ? '▲ About' : '▼ About';
-  }
-});
-
-// ── TAG FILTER ───────────────────────────────────────────
-let activeTag = null;
-
-function filterByTag(tag) {
-  activeTag = tag;
-  const bar = document.getElementById('tag-filter-bar');
-  const allCards = document.querySelectorAll('[data-tags]');
-  allCards.forEach(card => {
-    const tags = (card.dataset.tags || '').toLowerCase().split(',').map(t=>t.trim()).filter(Boolean);
-    if (!tag || tags.includes(tag.toLowerCase())) {
-      card.style.display = '';
-    } else {
-      card.style.display = 'none';
-    }
-  });
-  // Mark active chips
-  document.querySelectorAll('.tag-chip').forEach(chip => {
-    chip.classList.toggle('active', chip.dataset.tag === tag);
-  });
-  if (tag && bar) {
-    bar.classList.add('visible');
-    const label = bar.querySelector('#active-tag-label');
-    if (label) label.textContent = '#' + tag;
-  } else if (bar) {
-    bar.classList.remove('visible');
-  }
-}
-
-function clearTagFilter() {
-  filterByTag(null);
-}
-
-// ── INJECT ABOUT + TAG UI INTO CARDS ─────────────────────
-(function buildCards() {
-  document.querySelectorAll('[data-about], [data-tags]').forEach(card => {
-    const aboutText = (card.dataset.about || '').trim();
-    const tagsRaw   = (card.dataset.tags   || '').trim();
-
-    // ── About block ──
-    if (aboutText && !card.querySelector('.card-about')) {
-      const box = document.createElement('div');
-      box.className = 'card-about';
-      box.textContent = aboutText;
-      // Insert after video/iframe but before card-body-like content
-      const ref = card.querySelector('h3, .card-body, .card-title');
-      if (ref) card.insertBefore(box, ref);
-      else card.appendChild(box);
-
-      // Add toggle button inside h3 or card-body
-      const btn = document.createElement('button');
-      btn.className = 'about-toggle';
-      btn.textContent = '▼ About';
-      const h3 = card.querySelector('h3');
-      const cbody = card.querySelector('.card-body');
-      if (h3) h3.insertAdjacentElement('afterend', btn);
-      else if (cbody) cbody.prepend(btn);
-      else card.insertBefore(btn, box.nextSibling);
-    }
-
-    // ── Tags row ──
-    if (tagsRaw && !card.querySelector('.card-tags')) {
-      const tags = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
-      if (!tags.length) return;
-      const row = document.createElement('div');
-      row.className = 'card-tags';
-      tags.forEach(t => {
-        const chip = document.createElement('button');
-        chip.className = 'tag-chip';
-        chip.dataset.tag = t.toLowerCase();
-        chip.textContent = '#' + t;
-        chip.addEventListener('click', () => {
-          if (activeTag === t.toLowerCase()) { clearTagFilter(); }
-          else { filterByTag(t.toLowerCase()); }
-        });
-        row.appendChild(chip);
-      });
-      card.appendChild(row);
-    }
-  });
-})();
-</script>
-
-<script>
-/* ── LAZY IFRAME LOADER (IntersectionObserver) ── */
-(function() {
-  function loadIframe(el) {
-    if (el.dataset.src) {
-      el.src = el.dataset.src;
-      delete el.dataset.src;
-    }
-  }
-  var io = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) {
-        loadIframe(e.target);
-        io.unobserve(e.target);
-      }
-    });
-  }, { rootMargin: "200px" });
-  document.querySelectorAll("iframe[data-src]").forEach(function(f) { io.observe(f); });
-})();
-</script>
+<script src="assets/site-ui.js" defer></script>
+<script src="assets/memes-data.js" defer></script>
+<script src="assets/meme-engine.js" defer></script>
 </body>
 </html>
