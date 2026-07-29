@@ -6,7 +6,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://cmp.gatekeeperconsent.com https://the.gatekeeperconsent.com https://www.ezojs.com https://ezoicanalytics.com https://*.ezoic.net https://pagead2.googlesyndication.com https://*.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://player.vimeo.com https://player.cloudinary.com https://*.googlesyndication.com https://*.doubleclick.net https://*.ezoic.net; connect-src 'self' https://*.ezoic.net https://ezoicanalytics.com; form-action 'self' https://api.web3forms.com https://formspree.io; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://shameful-farm.com https://hecticwelcomingassociation.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'self' https://player.vimeo.com https://player.cloudinary.com https://shameful-farm.com https://hecticwelcomingassociation.com; connect-src 'self' https://shameful-farm.com https://hecticwelcomingassociation.com; form-action 'self' https://api.web3forms.com https://formspree.io; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
         },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
@@ -52,12 +52,6 @@
     },
     {
       "source": "/assets/ads-config.js",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
-      ]
-    },
-    {
-      "source": "/assets/adsense-init.js",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
       ]
