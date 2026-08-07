@@ -1,14 +1,22 @@
 /* ============================================================
    DOWNLOAD GATE — loaded on every page that has download links.
-   Free downloads: 10 per day (resets at midnight, per browser).
-   From the 11th download of the day onward, the user has to
+   Free downloads: 5 per day (resets at midnight, per browser).
+   From the 6th download of the day onward, the user has to
    sit through a 5-second "ad" screen before the download starts.
    Reuses the site's existing ad script — no new ad network.
+
+   Bug fix: the "Continue Download" button fires a real download
+   by creating + clicking a temporary <a download> element. That
+   click bubbles back up into our own capture-phase listener below,
+   which would otherwise see it as *another* download click and
+   gate it again — causing the ad to loop forever. The `suppressGate`
+   flag is set right before that programmatic click and cleared on
+   the next tick, so our own synthetic click is never re-gated.
    ============================================================ */
 (function () {
   'use strict';
 
-  var DAILY_LIMIT = 10;
+  var DAILY_LIMIT = 5;
   var AD_SECONDS = 5;
   var COUNT_KEY_PREFIX = 'tm_dl_count_';
 
@@ -73,6 +81,7 @@
   var pendingHref = null;
   var pendingDownload = null;
   var countdownTimer = null;
+  var suppressGate = false; // true while we fire the real download click ourselves
 
   function triggerDownload(href, download) {
     var a = document.createElement('a');
@@ -81,7 +90,12 @@
     a.target = '_blank';
     a.rel = 'noopener';
     document.body.appendChild(a);
+
+    suppressGate = true;
     a.click();
+    // reset on next tick, after our own capture-phase listener has run
+    setTimeout(function () { suppressGate = false; }, 0);
+
     a.remove();
   }
 
@@ -128,6 +142,8 @@
   /* ── INTERCEPT DOWNLOAD CLICKS (capture phase, works with
      dynamically-rendered cards from meme-engine.js too) ──── */
   document.addEventListener('click', function (e) {
+    if (suppressGate) return; // this is our own programmatic download click — let it through
+
     var trigger = e.target.closest('a[download], .down, .btn-download, .fav-card-actions a');
     if (!trigger) return;
 
