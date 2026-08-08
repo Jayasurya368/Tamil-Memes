@@ -2,9 +2,10 @@
    DOWNLOAD GATE — loaded on every page that has download links.
 
    EVERY download click shows a "preparing your download" screen
-   with a native banner ad in it, then the real file download
-   starts automatically. No daily free quota — this runs every
-   single time.
+   with a native banner ad in it, then waits 5 seconds, then
+   the user must CLICK the "Continue Download" button to start
+   the real file download. No auto-continue — the gate stops
+   the user from skipping the ad.
 
    FIX (ad showing up "late"): the visible countdown used to
    start the instant the modal opened, at the same time the ad
@@ -15,14 +16,15 @@
    onerror fires — with a MAX_AD_LOAD_WAIT safety cap so a
    blocked/slow ad can never hang the download forever.
 
-   Note: the auto-continue at the end of the countdown fires a
-   real download by creating + clicking a temporary
-   <a download> element. That click bubbles back up into our
-   own capture-phase listener below, which would otherwise see
-   it as *another* download click and gate it again — looping
+   Note: the auto-continue (removed) used to fire a real
+   download by creating + clicking a temporary <a download>
+   element. That click bubbles back up into our own capture-
+   phase listener below, which would otherwise see it as
+   *another* download click and gate it again — looping
    forever. The `suppressGate` flag is set right before that
-   programmatic click and cleared on the next tick, so our own
-   synthetic click is never re-gated.
+   programmatic click and cleared on the next tick, so our
+   own synthetic click is never re-gated. (Still kept as a
+   safety net in case you ever switch back to auto-continue.)
    ============================================================ */
 (function () {
   'use strict';
@@ -126,7 +128,7 @@
 
   function startCountdown() {
     // Build the "X seconds" status line fresh now that the ad has settled.
-    statusEl.innerHTML = 'Your download starts in <span id="ad-gate-timer">' + AD_SECONDS + '</span>s...';
+    statusEl.innerHTML = 'Please wait <span id="ad-gate-timer">' + AD_SECONDS + '</span>s before continuing...';
     timerEl = statusEl.querySelector('#ad-gate-timer');
 
     var seconds = AD_SECONDS;
@@ -139,11 +141,17 @@
       if (seconds <= 0) {
         clearInterval(countdownTimer);
         countdownTimer = null;
-        statusEl.style.display = 'none';
+
+        // Countdown finished — do NOT auto-start the download.
+        // Enable the button and prompt the user to click it themselves
+        // so the ad actually gets its impression and the download only
+        // fires after an explicit user action.
+        statusEl.innerHTML = '✅ Ad complete — click below to start your download';
+        statusEl.style.color = '#22c55e';
         continueBtn.disabled = false;
-        continueBtn.textContent = '✅ Download ready';
-        // auto-continue once the wait is over
-        finishGate();
+        continueBtn.textContent = '⬇ Continue Download';
+        continueBtn.classList.add('ready');
+        continueBtn.focus();
       } else if (timerEl) {
         timerEl.textContent = seconds;
       }
@@ -160,8 +168,10 @@
 
     // Reset to the "loading" state every time the gate opens.
     statusEl.style.display = 'block';
+    statusEl.style.color = ''; // reset any "ready" colour from a previous gate
     statusEl.textContent = 'Loading ad\u2026';
     continueBtn.disabled = true;
+    continueBtn.classList.remove('ready');
     continueBtn.textContent = 'Please wait...';
     progressBar.style.width = '0%';
 
@@ -195,7 +205,8 @@
     showGate(anchor.href, anchor.hasAttribute('download') ? anchor.getAttribute('download') : null);
   }, true);
 
-  /* ── MODAL BUTTON (manual fallback — normally auto-fires) ─── */
+  /* ── MODAL BUTTON (user must click after countdown to start
+     the download — replaces the old auto-continue behaviour) ── */
   document.addEventListener('click', function (e) {
     if (e.target && e.target.id === 'ad-gate-continue' && !e.target.disabled) {
       finishGate();
