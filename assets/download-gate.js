@@ -1,10 +1,19 @@
 /* ============================================================
    DOWNLOAD GATE — loaded on every page that has download links.
 
-   EVERY download click shows a 3-second "preparing your
-   download" screen with a native banner ad in it, then the
-   real file download starts automatically. No daily free
-   quota — this runs every single time.
+   EVERY download click shows a "preparing your download" screen
+   with a native banner ad in it, then the real file download
+   starts automatically. No daily free quota — this runs every
+   single time.
+
+   FIX (ad showing up "late"): the visible countdown used to
+   start the instant the modal opened, at the same time the ad
+   script was still being requested over the network. On a slow
+   connection the countdown could finish before the ad even
+   rendered. Now we show a "Loading ad…" state first and only
+   start the AD_SECONDS countdown once the ad script's onload/
+   onerror fires — with a MAX_AD_LOAD_WAIT safety cap so a
+   blocked/slow ad can never hang the download forever.
 
    Note: the auto-continue at the end of the countdown fires a
    real download by creating + clicking a temporary
@@ -18,7 +27,8 @@
 (function () {
   'use strict';
 
-  var AD_SECONDS = 5;
+  var AD_SECONDS = 5;          // visible countdown, only starts once the ad has loaded
+  var MAX_AD_LOAD_WAIT = 2500; // ms — never wait longer than this for the ad itself to load
 
   /* ── MODAL (built once, lazily) ──────────────────────────── */
   var overlay, continueBtn, timerEl, statusEl, progressBar, adContainer;
@@ -37,32 +47,52 @@
           '<div id="ad-gate-ad-container"></div>' +
         '</div>' +
         '<div class="ad-gate-progress"><div class="ad-gate-progress-bar" id="ad-gate-progress-bar"></div></div>' +
-        '<div class="ad-gate-status" id="ad-gate-status">Your download starts in <span id="ad-gate-timer">' + AD_SECONDS + '</span>s...</div>' +
+        '<div class="ad-gate-status" id="ad-gate-status">Loading ad&hellip;</div>' +
         '<button type="button" class="ad-gate-continue" id="ad-gate-continue" disabled>Please wait...</button>' +
       '</div>';
     document.body.appendChild(overlay);
     continueBtn = overlay.querySelector('#ad-gate-continue');
-    timerEl = overlay.querySelector('#ad-gate-timer');
+    timerEl = null; // (re)created fresh each time we build the countdown text
     statusEl = overlay.querySelector('#ad-gate-status');
     progressBar = overlay.querySelector('#ad-gate-progress-bar');
     adContainer = overlay.querySelector('#ad-gate-ad-container');
   }
 
-  function loadAdIntoSlot() {
+  /* Loads the ad script and calls back once it has either loaded,
+     errored, or MAX_AD_LOAD_WAIT has elapsed — whichever comes first.
+     This is what lets us delay the countdown until the ad is actually
+     ready, instead of racing it. */
+  function loadAdIntoSlot(onSettled) {
     adContainer.innerHTML = '';
+    var settled = false;
+    function settle() {
+      if (settled) return;
+      settled = true;
+      if (onSettled) onSettled();
+    }
+
     try {
+      // A harmless marker node so the ad tag's own DOM-insertion logic
+      // (written to run "relative to the last script on the page") still
+      // ends up placed inside our ad slot instead of somewhere random.
+      var marker = document.createElement('script');
+      marker.type = 'text/plain'; // never executes — just an anchor point
+      adContainer.appendChild(marker);
+
       var s = document.createElement('script');
-      s.text =
-        "(function(csowh){" +
-        "var d = document, s = d.createElement('script'), l = d.currentScript || d.scripts[d.scripts.length - 1];" +
-        "s.settings = csowh || {};" +
-        "s.src = \"\\/\\/shameful-farm.com\\/b.X\\/VLsEdsGglT0PY\\/WgcV\\/te\\/mO9AuvZUUQlmkgPvTbc\\/xjMjT\\/Uj3TOTDdUPttNYz\\/EQxsNaTEc_4vOxQj\";" +
-        "s.async = true;" +
-        "s.referrerPolicy = 'no-referrer-when-downgrade';" +
-        "l.parentNode.insertBefore(s, l.nextSibling);" +
-        "})({});";
-      adContainer.appendChild(s);
-    } catch (e) {}
+      s.src = '//shameful-farm.com/b.X/VLsEdsGglT0PY/WgcV/te/mO9AuvZUUQlmkgPvTbc/xjMjT/Uj3TOTDdUPttNYz/EQxsNaTEc_4vOxQj';
+      s.async = true;
+      s.referrerPolicy = 'no-referrer-when-downgrade';
+      s.onload = settle;
+      s.onerror = settle;
+      adContainer.insertBefore(s, marker);
+    } catch (e) {
+      settle();
+    }
+
+    // Safety net: an adblocker or a slow network should never leave the
+    // user stuck on "Loading ad…" forever.
+    setTimeout(settle, MAX_AD_LOAD_WAIT);
   }
 
   var pendingHref = null;
@@ -94,20 +124,12 @@
     if (href) triggerDownload(href, dl);
   }
 
-  function showGate(href, download) {
-    buildModal();
-    pendingHref = href;
-    pendingDownload = download;
-
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    loadAdIntoSlot();
+  function startCountdown() {
+    // Build the "X seconds" status line fresh now that the ad has settled.
+    statusEl.innerHTML = 'Your download starts in <span id="ad-gate-timer">' + AD_SECONDS + '</span>s...';
+    timerEl = statusEl.querySelector('#ad-gate-timer');
 
     var seconds = AD_SECONDS;
-    timerEl.textContent = seconds;
-    statusEl.style.display = 'block';
-    continueBtn.disabled = true;
-    continueBtn.textContent = 'Please wait...';
     progressBar.style.width = '0%';
 
     if (countdownTimer) clearInterval(countdownTimer);
@@ -117,16 +139,36 @@
       if (seconds <= 0) {
         clearInterval(countdownTimer);
         countdownTimer = null;
-        timerEl.textContent = '0';
         statusEl.style.display = 'none';
         continueBtn.disabled = false;
         continueBtn.textContent = '✅ Download ready';
         // auto-continue once the wait is over
         finishGate();
-      } else {
+      } else if (timerEl) {
         timerEl.textContent = seconds;
       }
     }, 1000);
+  }
+
+  function showGate(href, download) {
+    buildModal();
+    pendingHref = href;
+    pendingDownload = download;
+
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    // Reset to the "loading" state every time the gate opens.
+    statusEl.style.display = 'block';
+    statusEl.textContent = 'Loading ad\u2026';
+    continueBtn.disabled = true;
+    continueBtn.textContent = 'Please wait...';
+    progressBar.style.width = '0%';
+
+    // Only start the visible countdown once the ad has actually
+    // loaded (or the safety timeout fires) — this is the fix for
+    // the ad appearing "late" relative to the timer.
+    loadAdIntoSlot(startCountdown);
   }
 
   function hideGate() {
