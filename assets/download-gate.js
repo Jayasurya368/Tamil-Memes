@@ -2,12 +2,11 @@
    DOWNLOAD GATE — loaded on every page that has download links.
 
    EVERY download click shows a "preparing your download" screen
-   with a native banner ad in it, then waits 5 seconds, then
-   the user must CLICK the "Continue Download" button to start
-   the real file download. No auto-continue — the gate stops
-   the user from skipping the ad.
+   with a native banner ad in it. Once the countdown finishes,
+   the person clicks "Click to Download" and the real file
+   download starts. No daily free quota — this runs every time.
 
-   FIX (ad showing up "late"): the visible countdown used to
+   FIX 1 (ad showing up "late"): the visible countdown used to
    start the instant the modal opened, at the same time the ad
    script was still being requested over the network. On a slow
    connection the countdown could finish before the ad even
@@ -16,15 +15,24 @@
    onerror fires — with a MAX_AD_LOAD_WAIT safety cap so a
    blocked/slow ad can never hang the download forever.
 
-   Note: the auto-continue (removed) used to fire a real
-   download by creating + clicking a temporary <a download>
-   element. That click bubbles back up into our own capture-
-   phase listener below, which would otherwise see it as
-   *another* download click and gate it again — looping
-   forever. The `suppressGate` flag is set right before that
-   programmatic click and cleared on the next tick, so our
-   own synthetic click is never re-gated. (Still kept as a
-   safety net in case you ever switch back to auto-continue.)
+   FIX 2 ("popup blocked" on download): the download used to fire
+   automatically from the timer with target="_blank". Opening a
+   new tab from code that isn't running inside a direct click
+   handler is exactly what browsers flag as a blocked popup —
+   which is what everyone was seeing and clicking through blindly.
+   Now: (a) there's no target="_blank" at all, the file downloads
+   in the same tab like the original buttons did, and (b) the
+   download only fires from the person's actual click on
+   "Click to Download", never automatically from the timer. A real
+   click is a genuine user gesture, so browsers never block it.
+
+   Note: that real click on "Continue" fires a real download by
+   creating + clicking a temporary <a download> element. That
+   click bubbles back up into our own capture-phase listener
+   below, which would otherwise see it as *another* download
+   click and gate it again — looping forever. The `suppressGate`
+   flag is set right before that programmatic click and cleared
+   on the next tick, so our own synthetic click is never re-gated.
    ============================================================ */
 (function () {
   'use strict';
@@ -100,14 +108,18 @@
   var pendingHref = null;
   var pendingDownload = null;
   var countdownTimer = null;
-  var suppressGate = false; // true while we fire the real download click ourselves
+  var suppressGate = false;      // true while we fire the real download click ourselves
+  var gateHistoryPushed = false; // true while a "checkpoint" history entry is sitting under the gate
+  var selfPop = false;           // true while we're the ones popping our own checkpoint (not the user)
 
   function triggerDownload(href, download) {
     var a = document.createElement('a');
     a.href = href;
     if (download !== null) a.setAttribute('download', download || '');
-    a.target = '_blank';
-    a.rel = 'noopener';
+    // No target="_blank" here on purpose: opening a new tab from code
+    // that isn't running directly inside a click handler is exactly what
+    // browsers flag as a blocked popup. Downloading in the same tab
+    // (same as the site's original download buttons) avoids that entirely.
     document.body.appendChild(a);
 
     suppressGate = true;
@@ -121,6 +133,7 @@
   function finishGate() {
     var href = pendingHref, dl = pendingDownload;
     hideGate();
+    gateHistoryPushed = false; // the tab is about to navigate for the download anyway
     pendingHref = null;
     pendingDownload = null;
     if (href) triggerDownload(href, dl);
@@ -128,7 +141,7 @@
 
   function startCountdown() {
     // Build the "X seconds" status line fresh now that the ad has settled.
-    statusEl.innerHTML = 'Please wait <span id="ad-gate-timer">' + AD_SECONDS + '</span>s before continuing...';
+    statusEl.innerHTML = 'Your download starts in <span id="ad-gate-timer">' + AD_SECONDS + '</span>s...';
     timerEl = statusEl.querySelector('#ad-gate-timer');
 
     var seconds = AD_SECONDS;
@@ -141,17 +154,16 @@
       if (seconds <= 0) {
         clearInterval(countdownTimer);
         countdownTimer = null;
-
-        // Countdown finished — do NOT auto-start the download.
-        // Enable the button and prompt the user to click it themselves
-        // so the ad actually gets its impression and the download only
-        // fires after an explicit user action.
-        statusEl.innerHTML = '✅ Ad complete — click below to start your download';
-        statusEl.style.color = '#22c55e';
+        statusEl.style.display = 'none';
         continueBtn.disabled = false;
-        continueBtn.textContent = '⬇ Continue Download';
-        continueBtn.classList.add('ready');
-        continueBtn.focus();
+        continueBtn.textContent = '⬇ Click to Download';
+        // NOTE: we deliberately do NOT call finishGate() here.
+        // Firing the download automatically from a timer callback (no
+        // real click behind it) is exactly what browsers flag as an
+        // unwanted popup/auto-download and silently block. Enabling the
+        // button and waiting for the person's actual click keeps the
+        // download tied to a genuine user gesture, so it always goes
+        // through cleanly with no "popup blocked" bar.
       } else if (timerEl) {
         timerEl.textContent = seconds;
       }
@@ -168,12 +180,19 @@
 
     // Reset to the "loading" state every time the gate opens.
     statusEl.style.display = 'block';
-    statusEl.style.color = ''; // reset any "ready" colour from a previous gate
     statusEl.textContent = 'Loading ad\u2026';
     continueBtn.disabled = true;
-    continueBtn.classList.remove('ready');
     continueBtn.textContent = 'Please wait...';
     progressBar.style.width = '0%';
+
+    // Push a "checkpoint" history entry so a phone/browser back-press
+    // while the gate is open fires our popstate handler below instead
+    // of silently navigating to whatever page happened to be earlier
+    // in history (e.g. a stray thank-you.html from a past form submit).
+    try {
+      history.pushState({ tmwAdGate: true }, '', location.href);
+      gateHistoryPushed = true;
+    } catch (e) {}
 
     // Only start the visible countdown once the ad has actually
     // loaded (or the safety timeout fires) — this is the fix for
@@ -205,8 +224,7 @@
     showGate(anchor.href, anchor.hasAttribute('download') ? anchor.getAttribute('download') : null);
   }, true);
 
-  /* ── MODAL BUTTON (user must click after countdown to start
-     the download — replaces the old auto-continue behaviour) ── */
+  /* ── MODAL BUTTON (manual fallback — normally auto-fires) ─── */
   document.addEventListener('click', function (e) {
     if (e.target && e.target.id === 'ad-gate-continue' && !e.target.disabled) {
       finishGate();
@@ -220,6 +238,28 @@
       hideGate();
       pendingHref = null;
       pendingDownload = null;
+      if (gateHistoryPushed) {
+        selfPop = true;
+        gateHistoryPushed = false;
+        try { history.back(); } catch (e2) {}
+      }
+    }
+  });
+
+  /* ── PHONE / BROWSER BACK BUTTON WHILE GATE IS OPEN ──────────
+     Fires when the checkpoint state pushed in showGate() gets
+     popped. Instead of letting the browser fall through to
+     whatever page was actually earlier in history, we close the
+     gate, cancel the pending download (the person backed out, they
+     didn't continue), and send them to index.html on purpose. */
+  window.addEventListener('popstate', function () {
+    if (selfPop) { selfPop = false; return; } // we triggered this ourselves cleaning up, ignore it
+    if (overlay && overlay.classList.contains('open')) {
+      gateHistoryPushed = false;
+      hideGate();
+      pendingHref = null;
+      pendingDownload = null;
+      window.location.href = 'index.html';
     }
   });
 })();
