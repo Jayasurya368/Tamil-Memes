@@ -1146,3 +1146,12 @@ footer a:hover { text-decoration: underline; }
   .card-actions { padding: 0 8px 10px; }
   .about-toggle { margin: 3px 8px 1px; font-size: 10px; }
 }
+.ad-gate-adslot {
+  width: 320px;
+  max-width: 100%;
+  min-height: 60px;
+  margin: 12px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

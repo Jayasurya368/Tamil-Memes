@@ -68,7 +68,7 @@
     adContainer = overlay.querySelector('#ad-gate-ad-container');
   }
 
-  /* Loads the ad script and calls back once it has either loaded,
+  /* Loads the ad and calls back once it has either loaded,
      errored, or MAX_AD_LOAD_WAIT has elapsed — whichever comes first.
      This is what lets us delay the countdown until the ad is actually
      ready, instead of racing it. */
@@ -82,20 +82,31 @@
     }
 
     try {
-      // A harmless marker node so the ad tag's own DOM-insertion logic
-      // (written to run "relative to the last script on the page") still
-      // ends up placed inside our ad slot instead of somewhere random.
-      var marker = document.createElement('script');
-      marker.type = 'text/plain'; // never executes — just an anchor point
-      adContainer.appendChild(marker);
+      // 1) Config script: declares the global `atOptions` object that
+      //    the invoke.js script below reads when it boots.
+      var configScript = document.createElement('script');
+      configScript.type = 'text/javascript';
+      configScript.text =
+        "atOptions = {" +
+          "'key' : '05fa0fb0e4ce305cd4b9218a631436ec'," +
+          "'format' : 'iframe'," +
+          "'height' : 50," +
+          "'width' : 320," +
+          "'params' : {}" +
+        "};";
+      adContainer.appendChild(configScript);
 
+      // 2) Main ad tag — this is what actually inserts the iframe banner.
+      //    onload fires after the script has executed, onerror if it 404s
+      //    or is blocked. Either way we settle and start the countdown.
       var s = document.createElement('script');
-      s.src = '//shameful-farm.com/b.X/VLsEdsGglT0PY/WgcV/te/mO9AuvZUUQlmkgPvTbc/xjMjT/Uj3TOTDdUPttNYz/EQxsNaTEc_4vOxQj';
+      s.type = 'text/javascript';
+      s.src = 'https://www.highperformanceformat.com/05fa0fb0e4ce305cd4b9218a631436ec/invoke.js';
       s.async = true;
       s.referrerPolicy = 'no-referrer-when-downgrade';
       s.onload = settle;
       s.onerror = settle;
-      adContainer.insertBefore(s, marker);
+      adContainer.appendChild(s);
     } catch (e) {
       settle();
     }
@@ -263,3 +274,4 @@
     }
   });
 })();
+
