@@ -18,7 +18,7 @@
 (function () {
   'use strict';
 
-  var AD_SECONDS = 3;
+  var AD_SECONDS = 5;
 
   /* ── MODAL (built once, lazily) ──────────────────────────── */
   var overlay, continueBtn, timerEl, statusEl, progressBar, adContainer;
