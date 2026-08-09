@@ -1004,140 +1004,6 @@ footer a:hover { text-decoration: underline; }
 .btn-copy svg { width: 13px; height: 13px; fill: currentColor; flex-shrink: 0; }
 .btn-copy.copied { border-color: #25d366; color: #25d366; }
 
-/* ── AD SLOT (professional "Ad" label above every ad unit) ── */
-.ad-slot {
-  max-width: 728px;
-  margin: 18px auto;
-  padding: 6px 0 0;
-  text-align: center;
-}
-.ad-label {
-  display: inline-block;
-  font-size: 9.5px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--muted);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 2px 8px;
-  margin-bottom: 6px;
-}
-.ad-slot-inner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 50px;
-  overflow: hidden;
-}
-
-/* ── DOWNLOAD-GATE MODAL (5s "watch an ad" screen every 10 downloads) ── */
-#ad-gate-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.72);
-  z-index: 3000;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-#ad-gate-overlay.open { display: flex; }
-.ad-gate-box {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 26px 24px;
-  max-width: 400px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 20px 60px rgba(0,0,0,.4);
-  animation: agPop .35s cubic-bezier(0.34,1.56,0.64,1);
-}
-@keyframes agPop {
-  from { transform: scale(0.92); opacity: 0; }
-  to   { transform: scale(1); opacity: 1; }
-}
-.ad-gate-icon { font-size: 30px; margin-bottom: 8px; }
-.ad-gate-box h3 {
-  font-family: 'Syne', sans-serif;
-  font-size: 17px;
-  font-weight: 800;
-  margin-bottom: 8px;
-  color: var(--text);
-}
-.ad-gate-msg {
-  font-size: 12.5px;
-  color: var(--muted);
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-.ad-gate-adslot {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 14px;
-}
-.ad-gate-adslot .ad-label { margin-bottom: 8px; }
-#ad-gate-ad-container {
-  min-height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.ad-gate-status {
-  font-size: 12px;
-  color: var(--muted);
-  margin-bottom: 12px;
-}
-.ad-gate-status span { color: var(--accent); font-weight: 700; }
-.ad-gate-continue {
-  width: 100%;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  color: #fff;
-  border: none;
-  padding: 12px;
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  font-family: inherit;
-  transition: opacity .2s;
-}
-.ad-gate-continue:disabled {
-  opacity: .5;
-  cursor: not-allowed;
-}
-.ad-gate-continue:not(:disabled):hover { opacity: .9; }
-.ad-gate-continue:not(:disabled) {
-  animation: agReady 1.1s ease-in-out infinite;
-}
-@keyframes agReady {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255,69,0,.45); }
-  50% { box-shadow: 0 0 0 8px rgba(255,69,0,0); }
-}
-.ad-gate-progress {
-  width: 100%;
-  height: 5px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 10px;
-}
-.ad-gate-progress-bar {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  transition: width 1s linear;
-}
-
-@media (max-width: 480px) {
-  .ad-gate-box { padding: 20px 18px; }
-}
-
 /* ── RESPONSIVE ADDITIONS ── */
 @media (max-width: 600px) {
   .card-share-row { padding: 0 8px 8px; gap: 4px; }
@@ -1146,12 +1012,45 @@ footer a:hover { text-decoration: underline; }
   .card-actions { padding: 0 8px 10px; }
   .about-toggle { margin: 3px 8px 1px; font-size: 10px; }
 }
-.ad-gate-adslot {
-  width: 320px;
-  max-width: 100%;
-  min-height: 60px;
-  margin: 12px auto;
+
+/* ── MOVIE PROMO CARD ── */
+.movie-promo-card {
   display: flex;
+  gap: 20px;
   align-items: center;
-  justify-content: center;
+  background: linear-gradient(135deg,#1a1010,#2a1010);
+  border: 1px solid rgba(255,69,0,.3);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin: 28px auto 0;
+  max-width: 1200px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.25);
+}
+.movie-promo-poster img {
+  width: 130px;
+  border-radius: 10px;
+  display: block;
+  box-shadow: 0 8px 24px rgba(0,0,0,.5);
+}
+.movie-promo-body { flex: 1; }
+.movie-promo-tag {
+  font-size: 10px; font-weight: 700; letter-spacing: .5px;
+  color: var(--accent2); text-transform: uppercase; margin-bottom: 6px;
+}
+.movie-promo-title {
+  font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; color: #fff;
+}
+.movie-promo-sub { font-size: 12px; color: #bbb; margin: 6px 0 16px; line-height: 1.5; }
+.movie-promo-watch {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff; padding: 10px 24px; border-radius: 10px;
+  font-weight: 700; font-size: 13px; text-decoration: none;
+  transition: opacity .2s, transform .1s;
+}
+.movie-promo-watch:hover { opacity: .9; transform: translateY(-1px); }
+
+@media (max-width: 560px) {
+  .movie-promo-card { flex-direction: column; text-align: center; padding: 18px; }
+  .movie-promo-poster img { width: 160px; }
 }
