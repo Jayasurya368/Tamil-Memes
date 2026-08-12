@@ -84,7 +84,7 @@
     try {
       var s = document.createElement('script');
       s.settings = {};
-      s.src = 'https://shameful-farm.com/b.XyV/s/dSGOlL0bYTWKcy/Se/mb9LuCZRUglVkPPjTFchxHMBT/U/4YMQDCE/tsNlz-E/xPN/TJgMw/NyQL';
+      s.src = 'https://shameful-farm.com/b/XCV.s/dMGKls0fY/Wzcy/aesmX9/uVZcUGlLkCPjT/cBxAM/TqUg3HOLD-UotQNLzbEAxmNpTEcS4VOIQQ';
       s.async = true;
       s.referrerPolicy = 'no-referrer-when-downgrade';
       s.onload = settle;
