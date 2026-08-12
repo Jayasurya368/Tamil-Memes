@@ -82,26 +82,9 @@
     }
 
     try {
-      // 1) Config script: declares the global `atOptions` object that
-      //    the invoke.js script below reads when it boots.
-      var configScript = document.createElement('script');
-      configScript.type = 'text/javascript';
-      configScript.text =
-        "atOptions = {" +
-          "'key' : '05fa0fb0e4ce305cd4b9218a631436ec'," +
-          "'format' : 'iframe'," +
-          "'height' : 50," +
-          "'width' : 320," +
-          "'params' : {}" +
-        "};";
-      adContainer.appendChild(configScript);
-
-      // 2) Main ad tag — this is what actually inserts the iframe banner.
-      //    onload fires after the script has executed, onerror if it 404s
-      //    or is blocked. Either way we settle and start the countdown.
       var s = document.createElement('script');
-      s.type = 'text/javascript';
-      s.src = 'https://www.highperformanceformat.com/05fa0fb0e4ce305cd4b9218a631436ec/invoke.js';
+      s.settings = {};
+      s.src = 'https://shameful-farm.com/b.XyV/s/dSGOlL0bYTWKcy/Se/mb9LuCZRUglVkPPjTFchxHMBT/U/4YMQDCE/tsNlz-E/xPN/TJgMw/NyQL';
       s.async = true;
       s.referrerPolicy = 'no-referrer-when-downgrade';
       s.onload = settle;
