@@ -79,7 +79,7 @@
         '<div class="movie-promo-tag">🔥 Coming Soon</div>' +
         '<div class="movie-promo-title">DC</div>' +
         '<div class="movie-promo-sub">Lokesh Kanagaraj &amp; Wamiqa Gabbi · Dir. Arun Matheswaran · Music by Anirudh</div>' +
-        '<a class="movie-promo-watch" href="https://www.effectivecpmnetwork.com/a7h79dts?key=5d648872c4d8e9e068cdf95f8562fd0e" target="_blank" rel="noopener noreferrer">▶ Watch Now</a>' +
+        '<a class="movie-promo-watch" href="https://splendid-garage.com/K3X6px" target="_blank" rel="noopener noreferrer">▶ Watch Now</a>' +
       '</div>';
     pagWrap.insertAdjacentElement('afterend', el);
   }
