@@ -134,6 +134,7 @@ header {
   font-weight: 800;
   background: linear-gradient(90deg, #1a1a1a 40%, var(--accent2));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   white-space: nowrap;
 }
@@ -230,6 +231,7 @@ main {
   font-weight: 800;
   background: linear-gradient(90deg, #1a1a1a 40%, var(--accent2));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .page-title-bar p {
