@@ -1,16 +1,17 @@
 /* ============================================================
    DOWNLOAD GATE — loaded on every page that has download links.
 
-   First 5 downloads per day are FREE (direct download).
-   If a person wants to download more than 5 memes per day,
-   they need to watch the download gate modal with a quick ad.
+   Every download shows the ad gate modal with a quick ad.
+   First 5 downloads per day use the standard 5-second ad timer.
+   After downloading 5 memes, an extra 10 seconds is added (15s total)
+   for each subsequent download.
 
    FIX 1 (ad showing up "late"): the visible countdown used to
    start the instant the modal opened, at the same time the ad
    script was still being requested over the network. On a slow
    connection the countdown could finish before the ad even
    rendered. Now we show a "Loading ad…" state first and only
-   start the AD_SECONDS countdown once the ad script's onload/
+   start the countdown once the ad script's onload/
    onerror fires — with a MAX_AD_LOAD_WAIT safety cap so a
    blocked/slow ad can never hang the download forever.
 
@@ -36,9 +37,10 @@
 (function () {
   'use strict';
 
-  var AD_SECONDS = 5;          // visible countdown, only starts once the ad has loaded
+  var BASE_AD_SECONDS = 5;      // standard visible countdown (seconds)
+  var EXTRA_AD_SECONDS = 10;   // extra ad time added after 5 downloads (seconds)
+  var STANDARD_DOWNLOAD_CAP = 5; // download count threshold for extra ad time
   var MAX_AD_LOAD_WAIT = 2500; // ms — never wait longer than this for the ad itself to load
-  var FREE_DOWNLOADS_PER_DAY = 5;
 
   /* ── DAILY DOWNLOAD COUNTER ───────────────────────────────── */
   function getDailyDownloadCount() {
@@ -160,26 +162,27 @@
     if (href) triggerDownload(href, dl);
   }
 
-  function startCountdown() {
+  function startCountdown(totalSeconds) {
+    var duration = totalSeconds || BASE_AD_SECONDS;
     // Build the "X seconds" status line fresh now that the ad has settled.
-    statusEl.innerHTML = 'Your download starts in <span id="ad-gate-timer">' + AD_SECONDS + '</span>s...';
+    statusEl.innerHTML = 'Your download starts in <span id="ad-gate-timer">' + duration + '</span>s...';
     timerEl = statusEl.querySelector('#ad-gate-timer');
 
-    var seconds = AD_SECONDS;
+    var secondsRemaining = duration;
     progressBar.style.width = '0%';
 
     if (countdownTimer) clearInterval(countdownTimer);
     countdownTimer = setInterval(function () {
-      seconds--;
-      progressBar.style.width = (((AD_SECONDS - seconds) / AD_SECONDS) * 100) + '%';
-      if (seconds <= 0) {
+      secondsRemaining--;
+      progressBar.style.width = (((duration - secondsRemaining) / duration) * 100) + '%';
+      if (secondsRemaining <= 0) {
         clearInterval(countdownTimer);
         countdownTimer = null;
         statusEl.style.display = 'none';
         continueBtn.disabled = false;
         continueBtn.textContent = '⬇ Click to Download';
       } else if (timerEl) {
-        timerEl.textContent = seconds;
+        timerEl.textContent = secondsRemaining;
       }
     }, 1000);
   }
@@ -204,7 +207,15 @@
       gateHistoryPushed = true;
     } catch (e) {}
 
-    loadAdIntoSlot(startCountdown);
+    // Calculate required ad duration based on daily download count:
+    // First 5 downloads per day = standard ad duration (5s)
+    // 6th download onwards (after 5 memes) = standard + 10s extra (15s total)
+    var count = getDailyDownloadCount();
+    var adSeconds = count >= STANDARD_DOWNLOAD_CAP ? (BASE_AD_SECONDS + EXTRA_AD_SECONDS) : BASE_AD_SECONDS;
+
+    loadAdIntoSlot(function () {
+      startCountdown(adSeconds);
+    });
   }
 
   function hideGate() {
@@ -225,13 +236,7 @@
     var anchor = trigger.tagName === 'A' ? trigger : trigger.closest('a');
     if (!anchor || !anchor.href) return;
 
-    var count = getDailyDownloadCount();
-    if (count < FREE_DOWNLOADS_PER_DAY) {
-      incrementDailyDownloadCount();
-      return; // first 5 downloads per day are free direct downloads
-    }
-
-    // 6th download onwards per day: show download gate modal
+    // Ad gate is common for EVERY download click
     e.preventDefault();
     e.stopPropagation();
     showGate(anchor.href, anchor.hasAttribute('download') ? anchor.getAttribute('download') : null);
