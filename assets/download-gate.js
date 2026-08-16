@@ -1,10 +1,9 @@
 /* ============================================================
    DOWNLOAD GATE — loaded on every page that has download links.
 
-   EVERY download click shows a "preparing your download" screen
-   with a native banner ad in it. Once the countdown finishes,
-   the person clicks "Click to Download" and the real file
-   download starts. No daily free quota — this runs every time.
+   First 5 downloads per day are FREE (direct download).
+   If a person wants to download more than 5 memes per day,
+   they need to watch the download gate modal with a quick ad.
 
    FIX 1 (ad showing up "late"): the visible countdown used to
    start the instant the modal opened, at the same time the ad
@@ -39,6 +38,33 @@
 
   var AD_SECONDS = 5;          // visible countdown, only starts once the ad has loaded
   var MAX_AD_LOAD_WAIT = 2500; // ms — never wait longer than this for the ad itself to load
+  var FREE_DOWNLOADS_PER_DAY = 5;
+
+  /* ── DAILY DOWNLOAD COUNTER ───────────────────────────────── */
+  function getDailyDownloadCount() {
+    try {
+      var today = new Date().toDateString();
+      var savedDate = localStorage.getItem('tmw_download_date');
+      var count = parseInt(localStorage.getItem('tmw_download_count') || '0', 10);
+      if (savedDate !== today) {
+        localStorage.setItem('tmw_download_date', today);
+        localStorage.setItem('tmw_download_count', '0');
+        return 0;
+      }
+      return isNaN(count) ? 0 : count;
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function incrementDailyDownloadCount() {
+    try {
+      var today = new Date().toDateString();
+      var count = getDailyDownloadCount();
+      localStorage.setItem('tmw_download_date', today);
+      localStorage.setItem('tmw_download_count', (count + 1).toString());
+    } catch (e) {}
+  }
 
   /* ── MODAL (built once, lazily) ──────────────────────────── */
   var overlay, continueBtn, timerEl, statusEl, progressBar, adContainer;
@@ -130,6 +156,7 @@
     gateHistoryPushed = false; // the tab is about to navigate for the download anyway
     pendingHref = null;
     pendingDownload = null;
+    incrementDailyDownloadCount();
     if (href) triggerDownload(href, dl);
   }
 
@@ -151,13 +178,6 @@
         statusEl.style.display = 'none';
         continueBtn.disabled = false;
         continueBtn.textContent = '⬇ Click to Download';
-        // NOTE: we deliberately do NOT call finishGate() here.
-        // Firing the download automatically from a timer callback (no
-        // real click behind it) is exactly what browsers flag as an
-        // unwanted popup/auto-download and silently block. Enabling the
-        // button and waiting for the person's actual click keeps the
-        // download tied to a genuine user gesture, so it always goes
-        // through cleanly with no "popup blocked" bar.
       } else if (timerEl) {
         timerEl.textContent = seconds;
       }
@@ -179,18 +199,11 @@
     continueBtn.textContent = 'Please wait...';
     progressBar.style.width = '0%';
 
-    // Push a "checkpoint" history entry so a phone/browser back-press
-    // while the gate is open fires our popstate handler below instead
-    // of silently navigating to whatever page happened to be earlier
-    // in history (e.g. a stray thank-you.html from a past form submit).
     try {
       history.pushState({ tmwAdGate: true }, '', location.href);
       gateHistoryPushed = true;
     } catch (e) {}
 
-    // Only start the visible countdown once the ad has actually
-    // loaded (or the safety timeout fires) — this is the fix for
-    // the ad appearing "late" relative to the timer.
     loadAdIntoSlot(startCountdown);
   }
 
@@ -212,7 +225,13 @@
     var anchor = trigger.tagName === 'A' ? trigger : trigger.closest('a');
     if (!anchor || !anchor.href) return;
 
-    // Every download goes through the gate now.
+    var count = getDailyDownloadCount();
+    if (count < FREE_DOWNLOADS_PER_DAY) {
+      incrementDailyDownloadCount();
+      return; // first 5 downloads per day are free direct downloads
+    }
+
+    // 6th download onwards per day: show download gate modal
     e.preventDefault();
     e.stopPropagation();
     showGate(anchor.href, anchor.hasAttribute('download') ? anchor.getAttribute('download') : null);
