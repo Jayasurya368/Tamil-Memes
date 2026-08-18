@@ -109,6 +109,7 @@
       if (onSettled) onSettled();
     }
 
+    /* Ads temporarily disabled
     try {
       var s = document.createElement('script');
       s.settings = {};
@@ -121,10 +122,8 @@
     } catch (e) {
       settle();
     }
-
-    // Safety net: an adblocker or a slow network should never leave the
-    // user stuck on "Loading ad…" forever.
-    setTimeout(settle, MAX_AD_LOAD_WAIT);
+    */
+    settle();
   }
 
   var pendingHref = null;
@@ -236,10 +235,12 @@
     var anchor = trigger.tagName === 'A' ? trigger : trigger.closest('a');
     if (!anchor || !anchor.href) return;
 
-    // Ad gate is common for EVERY download click
+    // Ads temporarily removed: allow direct download without ad gate modal
+    /*
     e.preventDefault();
     e.stopPropagation();
     showGate(anchor.href, anchor.hasAttribute('download') ? anchor.getAttribute('download') : null);
+    */
   }, true);
 
   /* ── MODAL BUTTON (manual fallback — normally auto-fires) ─── */
