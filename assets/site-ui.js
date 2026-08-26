@@ -47,6 +47,10 @@
       case 'close-sidebar': closeSidebar(); break;
       case 'open-modal': openModal(el.dataset.modal); break;
       case 'close-modal': closeModal(el.dataset.modal); break;
+      case 'toggle-feedback':
+        var fs = document.getElementById('feedback-section');
+        if (fs) fs.classList.toggle('collapsed');
+        break;
       default: break;
     }
   });

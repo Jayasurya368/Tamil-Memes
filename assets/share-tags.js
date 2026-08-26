@@ -152,7 +152,7 @@
 
   /* ── SCAN AND ENRICH ALL CURRENT CARDS ──────────────── */
   function enrichAll() {
-    document.querySelectorAll('.o').forEach(enrichCard);
+    document.querySelectorAll('.o, .card').forEach(enrichCard);
   }
 
   /* ── WATCH #resultList FOR NEW CARDS ────────────────── */
