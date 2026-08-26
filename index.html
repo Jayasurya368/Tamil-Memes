@@ -258,7 +258,9 @@
     <form action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="80c4bb33-21dc-460a-b4ae-f7e39798773d">
       <input type="hidden" name="botcheck" value="" style="display:none">
+      <input type="email" name="email" placeholder="Your email (optional — so we can reply)">
       <textarea name="feedback" placeholder="Type your meme request here..."></textarea>
+      <div id="feedback-match-box"></div>
       <button class="btn-send" type="submit">Send Request</button>
     </form>
   </div>
@@ -378,6 +380,7 @@ l.parentNode.insertBefore(s, l);
 <script src="assets/site-ui.js" defer></script>
 <script src="assets/cookie-consent.js" defer></script>
 <script src="assets/memes-data.js" defer></script>
+<script src="assets/feedback-duplicate-check.js" defer></script>
 <script src="assets/meme-engine.js" defer></script>
 <script src="assets/download-gate.js" defer></script>
 <script src="tamil-meme-widget.js" defer></script>

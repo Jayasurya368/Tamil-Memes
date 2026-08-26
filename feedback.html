@@ -50,8 +50,13 @@
     <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">Can't find what you need? Tell us and we'll add it within 24 hours.</p>
     <form action="https://formspree.io/f/xgodkkwj" method="POST">
       <div class="txt">
+        <label>Your email (optional — so we can reply)</label>
+        <input type="email" name="email" placeholder="you@example.com">
+      </div>
+      <div class="txt">
         <label>Your meme request</label>
         <textarea name="feedback" rows="4" placeholder="Describe the meme template you need..."></textarea>
+        <div id="feedback-match-box"></div>
       </div>
       <button class="fbut" type="submit">Send Request 🚀</button>
     </form>
@@ -109,6 +114,7 @@ l.parentNode.insertBefore(s, l);
 </footer>
 <script src="assets/site-ui.js" defer></script>
 <script src="assets/memes-data.js" defer></script>
+<script src="assets/feedback-duplicate-check.js" defer></script>
 <script src="assets/meme-engine.js" defer></script>
 <script src="assets/download-gate.js" defer></script>
 </body>

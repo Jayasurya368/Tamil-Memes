@@ -472,6 +472,20 @@ main {
   color: var(--muted);
   margin-bottom: 14px;
 }
+.feedback-section input[type="email"] {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  padding: 12px;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color .2s;
+  margin-bottom: 10px;
+}
+.feedback-section input[type="email"]:focus { border-color: var(--accent); }
 .feedback-section textarea {
   width: 100%;
   background: var(--surface);
@@ -488,6 +502,20 @@ main {
   margin-bottom: 10px;
 }
 .feedback-section textarea:focus { border-color: var(--accent); }
+#feedback-match-box {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+#feedback-match-box:empty {
+  display: none;
+  margin-bottom: 0;
+}
+#feedback-match-box strong {
+  color: var(--text);
+  font-weight: 600;
+}
 .btn-send {
   background: var(--accent);
   border: none;
