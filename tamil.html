@@ -267,45 +267,7 @@ function filterByTag(tag) {
 }
 
 // ── INJECT ABOUT + TAGS INTO CARDS ───────────────────────────────
-(function buildCards() {
-  document.querySelectorAll('[data-about], [data-tags]').forEach(card => {
-    const aboutText = (card.dataset.about || '').trim();
-    const tagsRaw   = (card.dataset.tags   || '').trim();
 
-    if (aboutText && !card.querySelector('.card-about')) {
-      const box = document.createElement('div');
-      box.className = 'card-about';
-      box.textContent = aboutText;
-      const h3 = card.querySelector('h3');
-      if (h3) card.insertBefore(box, h3);
-      else card.appendChild(box);
-
-      const btn = document.createElement('button');
-      btn.className = 'about-toggle';
-      btn.textContent = '▼ About';
-      if (h3) h3.insertAdjacentElement('afterend', btn);
-      else card.insertBefore(btn, box.nextSibling);
-    }
-
-    if (tagsRaw && !card.querySelector('.card-tags')) {
-      const tags = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
-      if (!tags.length) return;
-      const row = document.createElement('div');
-      row.className = 'card-tags';
-      tags.forEach(t => {
-        const chip = document.createElement('button');
-        chip.className = 'tag-chip';
-        chip.dataset.tag = t.toLowerCase();
-        chip.textContent = '#' + t;
-        chip.addEventListener('click', () => {
-          activeTag === t.toLowerCase() ? filterByTag(null) : filterByTag(t.toLowerCase());
-        });
-        row.appendChild(chip);
-      });
-      card.appendChild(row);
-    }
-  });
-})();
 
 // clear-tag-filter via data-action
 document.querySelector('[data-action="clear-tag-filter"]').addEventListener('click', () => filterByTag(null));

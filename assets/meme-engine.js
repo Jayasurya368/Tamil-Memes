@@ -80,41 +80,9 @@
     iframe.loading = 'lazy';
     card.appendChild(iframe);
 
-    if (meme.about) {
-      var aboutBox = document.createElement('div');
-      aboutBox.className = 'card-about';
-      aboutBox.textContent = meme.about;
-      card.appendChild(aboutBox);
-    }
-
     var h3 = document.createElement('h3');
     h3.textContent = meme.title;
     card.appendChild(h3);
-
-    if (meme.about) {
-      var toggleBtn = document.createElement('button');
-      toggleBtn.type = 'button';
-      toggleBtn.className = 'about-toggle';
-      toggleBtn.textContent = '▼ About';
-      toggleBtn.dataset.action = 'toggle-about';
-      card.appendChild(toggleBtn);
-    }
-
-    if (meme.tags && meme.tags.length) {
-      var tagsRow = document.createElement('div');
-      tagsRow.className = 'card-tags';
-      meme.tags.forEach(function (t) {
-        var chip = document.createElement('button');
-        chip.type = 'button';
-        chip.className = 'tag-chip';
-        chip.dataset.action = 'toggle-tag';
-        chip.dataset.tag = t.toLowerCase();
-        if (state.activeTag && state.activeTag.toLowerCase() === t.toLowerCase()) chip.classList.add('active');
-        chip.textContent = '#' + t;
-        tagsRow.appendChild(chip);
-      });
-      card.appendChild(tagsRow);
-    }
 
     var dlLink = document.createElement('a');
     dlLink.href = meme.href;
