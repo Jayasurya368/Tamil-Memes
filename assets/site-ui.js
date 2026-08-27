@@ -78,11 +78,11 @@
     el.id = 'movie-promo-dc';
     el.className = 'movie-promo-card';
     el.innerHTML =
-      '<div class="movie-promo-poster"><img src="assets/dc-poster.jpg" alt="DC movie poster" loading="lazy"></div>' +
+      '<div class="movie-promo-poster"><img src="assets/dc-poster.webp" alt="DC movie poster" loading="lazy"></div>' +
       '<div class="movie-promo-body">' +
         '<div class="movie-promo-tag">🔥 Coming Soon</div>' +
-        '<div class="movie-promo-title">DC</div>' +
-        '<div class="movie-promo-sub">Lokesh Kanagaraj &amp; Wamiqa Gabbi · Dir. Arun Matheswaran · Music by Anirudh</div>' +
+        '<div class="movie-promo-title">Toxic</div>' +
+        '<div class="movie-promo-sub">Yash &amp; Kiara advani · Dir.Geethu Mohandas · Music by Anirudh</div>' +
         '<a class="movie-promo-watch" href="https://splendid-garage.com/K3X6px" target="_blank" rel="noopener noreferrer">▶ Watch Now</a>' +
       '</div>';
     pagWrap.insertAdjacentElement('afterend', el);
