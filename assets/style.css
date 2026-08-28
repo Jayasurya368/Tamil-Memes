@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap');
 
 :root {
-  /* ── Midnight Plum ── */
-  --bg:      #130820;        /* deepest plum-black */
-  --surface: #1d0e36;        /* rich midnight plum */
-  --card:    #22124a;        /* elevated plum card */
-  --border:  #3b1f6e;        /* plum border */
-  /* ── Honey Dawn ── */
-  --accent:  #f5b942;        /* warm honey gold */
-  --accent2: #e8841c;        /* deep amber glow */
-  --accent3: #ffd580;        /* soft honey highlight */
-  /* ── Text ── */
-  --text:    #f5eeff;        /* lavender-white */
-  --muted:   #a085c0;        /* muted plum-lilac */
+  /* ── Honey Dawn backgrounds ── */
+  --bg:      #F0C986;        /* Honey Dawn — main background */
+  --surface: #e8b96e;        /* deeper honey surface */
+  --card:    #f7dfa8;        /* light honey card */
+  --border:  #c99840;        /* warm honey-amber border */
+  /* ── Midnight Plum accents ── */
+  --accent:  #3B163A;        /* Midnight Plum */
+  --accent2: #52205A;        /* lighter plum hover */
+  --accent3: #6b2d74;        /* soft plum highlight */
+  /* ── Text (dark for light bg) ── */
+  --text:    #1a0520;        /* near-black plum text */
+  --muted:   #6b4530;        /* warm muted brown */
   --radius:  14px;
 }
 
