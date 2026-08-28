@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap');
 
 :root {
-  --bg: #ffffff;
-  --surface: #f7f7f8;
-  --card: #ffffff;
-  --border: #e6e6e6;
-  --accent: #ff4500;
-  --accent2: #ff8c00;
-  --text: #1a1a1a;
-  --muted: #777;
+  --bg: #0f0720;
+  --surface: #1a0d35;
+  --card: #1e1040;
+  --border: #2d1b5a;
+  --accent: #f4a432;
+  --accent2: #e8881a;
+  --text: #f0e6ff;
+  --muted: #9b8ab8;
   --radius: 14px;
 }
 
@@ -61,7 +61,7 @@ body {
 .sidebar a:hover,
 .sidebar a.active {
   color: var(--text);
-  background: rgba(255,69,0,.08);
+  background: rgba(244,164,50,.1);
   border-left-color: var(--accent);
 }
 .sidebar a .icon { font-size: 18px; width: 22px; text-align: center; }
@@ -70,7 +70,7 @@ body {
 header {
   position: sticky; top: 0;
   z-index: 100;
-  background: rgba(255,255,255,.92);
+  background: rgba(15,7,32,.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   padding: 0 20px;
@@ -132,7 +132,7 @@ header {
   font-family: 'Syne', sans-serif;
   font-size: 20px;
   font-weight: 800;
-  background: linear-gradient(90deg, #1a1a1a 40%, var(--accent2));
+  background: linear-gradient(90deg, #f0e6ff 40%, var(--accent2));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -229,7 +229,7 @@ main {
   font-family: 'Syne', sans-serif;
   font-size: 28px;
   font-weight: 800;
-  background: linear-gradient(90deg, #1a1a1a 40%, var(--accent2));
+  background: linear-gradient(90deg, #f0e6ff 40%, var(--accent2));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -282,8 +282,8 @@ main {
 }
 .card:hover {
   transform: translateY(-3px);
-  border-color: rgba(255,69,0,.4);
-  box-shadow: 0 8px 32px rgba(255,69,0,.12);
+  border-color: rgba(244,164,50,.5);
+  box-shadow: 0 8px 32px rgba(244,164,50,.18);
 }
 .card-video {
   width: 100%;
@@ -353,8 +353,8 @@ main {
 }
 .o:hover {
   transform: translateY(-3px);
-  border-color: rgba(255,69,0,.4);
-  box-shadow: 0 8px 32px rgba(255,69,0,.12);
+  border-color: rgba(244,164,50,.5);
+  box-shadow: 0 8px 32px rgba(244,164,50,.18);
 }
 
 /* video iframe inside .o — keep class="video" exactly */
@@ -646,11 +646,11 @@ footer a:hover { text-decoration: underline; }
 
 /* ── ANIMATIONS ── */
 @keyframes disco {
-  0%   { color: #ff4500; }
-  25%  { color: #ff8c00; }
-  50%  { color: #ffd700; }
-  75%  { color: #ff4500; }
-  100% { color: #ff8c00; }
+  0%   { color: #f4a432; }
+  25%  { color: #e8881a; }
+  50%  { color: #ffd27a; }
+  75%  { color: #f4a432; }
+  100% { color: #e8881a; }
 }
 .a { animation: disco 1.5s infinite; }
 
@@ -704,21 +704,21 @@ footer a:hover { text-decoration: underline; }
   display: none;
   align-items: center;
   gap: 8px;
-  background: rgba(255,69,0,.1);
-  border: 1px solid rgba(255,69,0,.25);
+  background: rgba(244,164,50,.12);
+  border: 1px solid rgba(244,164,50,.3);
   border-radius: 8px;
   padding: 7px 14px;
   margin-bottom: 14px;
   font-size: 12px;
-  color: #ff8c00;
+  color: #f4a432;
   font-weight: 600;
 }
 #tag-filter-bar.visible { display: flex; }
 #tag-filter-bar button {
   margin-left: auto;
   background: none;
-  border: 1px solid rgba(255,69,0,.4);
-  color: #ff8c00;
+  border: 1px solid rgba(244,164,50,.45);
+  color: #f4a432;
   border-radius: 5px;
   padding: 3px 10px;
   font-size: 11px;
@@ -726,7 +726,7 @@ footer a:hover { text-decoration: underline; }
   font-family: inherit;
   transition: background .15s;
 }
-#tag-filter-bar button:hover { background: rgba(255,69,0,.2); }
+#tag-filter-bar button:hover { background: rgba(244,164,50,.22); }
 
 /* ── PAGINATION ── */
 .pagination-wrap {
@@ -915,17 +915,17 @@ footer a:hover { text-decoration: underline; }
   font-weight: 700;
   letter-spacing: .3px;
   text-transform: lowercase;
-  background: rgba(255,69,0,.1);
-  color: #ff8c00;
-  border: 1px solid rgba(255,140,0,.25);
+  background: rgba(244,164,50,.12);
+  color: #f4a432;
+  border: 1px solid rgba(244,164,50,.28);
   border-radius: 4px;
   padding: 2px 7px;
   cursor: pointer;
   transition: background .15s, color .15s;
   font-family: inherit;
 }
-.tag-chip:hover { background: rgba(255,69,0,.28); color: #fff; }
-.tag-chip.active { background: #ff4500; color: #fff; border-color: #ff4500; }
+.tag-chip:hover { background: rgba(244,164,50,.35); color: #fff; }
+.tag-chip.active { background: #f4a432; color: #0f0720; border-color: #f4a432; }
 
 /* ── CARD ACTIONS (download + fav row on index) ── */
 .card-actions {
@@ -1083,13 +1083,13 @@ footer a:hover { text-decoration: underline; }
   display: flex;
   gap: 20px;
   align-items: center;
-  background: linear-gradient(135deg,#1a1010,#2a1010);
-  border: 1px solid rgba(255,69,0,.3);
+  background: linear-gradient(135deg,#110a28,#1e0d40);
+  border: 1px solid rgba(244,164,50,.35);
   border-radius: var(--radius);
   padding: 20px;
   margin: 28px auto 0;
   max-width: 1200px;
-  box-shadow: 0 8px 32px rgba(0,0,0,.25);
+  box-shadow: 0 8px 32px rgba(0,0,0,.35), 0 0 60px rgba(244,164,50,.08);
 }
 .movie-promo-poster img {
   width: 130px;
