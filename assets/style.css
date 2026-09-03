@@ -1056,3 +1056,129 @@ footer a:hover { text-decoration: underline; }
 @media (max-width: 480px) {
   .ad-gate-box { padding: 22px 18px; }
 }
+
+/* ── 3D GALLERY SURFACES ── */
+body {
+  perspective: 1400px;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 183, 77, .38), transparent 28%),
+    radial-gradient(circle at 88% 24%, rgba(255, 111, 55, .16), transparent 30%),
+    linear-gradient(145deg, #fffaf5 0%, #fff1e2 48%, #f7e5d4 100%);
+}
+
+header {
+  transform-style: preserve-3d;
+  box-shadow: 0 18px 0 -10px rgba(125, 49, 8, .12), 0 18px 36px rgba(125, 49, 8, .24);
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  inset: auto 4% -10px;
+  height: 14px;
+  background: rgba(104, 42, 8, .2);
+  filter: blur(10px);
+  transform: translateZ(-18px);
+  pointer-events: none;
+}
+
+main {
+  transform-style: preserve-3d;
+}
+
+.cat-nav,
+.grid,
+.results,
+.fav-grid {
+  perspective: 1100px;
+}
+
+.cat-card,
+.card,
+.o,
+.fav-card,
+.movie-promo-card,
+.privacy-wrap,
+.para {
+  transform-style: preserve-3d;
+  box-shadow: 0 16px 0 -10px rgba(123, 52, 15, .16), 0 20px 34px rgba(123, 52, 15, .14);
+}
+
+.cat-card {
+  transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s, border-color .2s;
+}
+.cat-card:hover {
+  transform: translateY(-8px) rotateX(7deg) rotateY(-7deg) translateZ(12px);
+  box-shadow: 10px 22px 0 -12px rgba(123, 52, 15, .2), 0 28px 40px rgba(123, 52, 15, .2);
+}
+.cat-icon {
+  transform: translateZ(12px);
+}
+
+.card,
+.o {
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .2s, box-shadow .35s;
+}
+.card:hover,
+.o:hover {
+  transform: translateY(-9px) rotateX(2deg) rotateY(-2deg) translateZ(10px);
+  box-shadow: 10px 24px 0 -12px rgba(123, 52, 15, .2), 0 28px 44px rgba(123, 52, 15, .2);
+}
+.card-video,
+.video {
+  transform: translateZ(4px);
+}
+
+.section-header,
+.page-title-bar,
+.count-info,
+.cat-nav-heading {
+  transform: translateZ(10px);
+}
+
+.badge,
+.btn-download,
+.down,
+.btn-fav,
+.page-btn,
+.search-box button,
+.movie-promo-watch {
+  box-shadow: 0 5px 0 rgba(133, 52, 7, .2), 0 9px 14px rgba(133, 52, 7, .12);
+}
+
+.badge {
+  transform: translateZ(14px);
+}
+
+.logo-icon {
+  transform: translateZ(18px) rotateY(-8deg);
+}
+
+.movie-promo-card {
+  transform: perspective(900px) rotateX(1deg);
+}
+.movie-promo-poster img {
+  transform: translateZ(18px) rotateY(5deg);
+}
+
+@media (max-width: 600px) {
+  .cat-card:hover,
+  .card:hover,
+  .o:hover {
+    transform: translateY(-4px) translateZ(4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .cat-card:hover,
+  .card:hover,
+  .o:hover,
+  .movie-promo-card {
+    transform: none;
+  }
+}

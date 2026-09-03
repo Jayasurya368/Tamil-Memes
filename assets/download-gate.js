@@ -109,7 +109,7 @@
       if (onSettled) onSettled();
     }
 
-    /* Ads temporarily disabled
+    // Ads enabled
     try {
       var s = document.createElement('script');
       s.settings = {};
@@ -122,8 +122,8 @@
     } catch (e) {
       settle();
     }
-    */
-    settle();
+    // End ad loader
+    setTimeout(settle, MAX_AD_LOAD_WAIT);
   }
 
   var pendingHref = null;
@@ -235,12 +235,11 @@
     var anchor = trigger.tagName === 'A' ? trigger : trigger.closest('a');
     if (!anchor || !anchor.href) return;
 
-    // Ads temporarily removed: allow direct download without ad gate modal
-    /*
+    // Ad gate active
     e.preventDefault();
     e.stopPropagation();
     showGate(anchor.href, anchor.hasAttribute('download') ? anchor.getAttribute('download') : null);
-    */
+    // End ad gate interception
   }, true);
 
   /* ── MODAL BUTTON (manual fallback — normally auto-fires) ─── */
