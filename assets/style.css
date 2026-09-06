@@ -936,8 +936,11 @@ footer a:hover { text-decoration: underline; }
   display: none;
   position: fixed;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
   background: rgba(0,0,0,.72);
-  z-index: 3000;
+  z-index: 10000;
   align-items: center;
   justify-content: center;
   padding: 20px;
@@ -951,6 +954,9 @@ footer a:hover { text-decoration: underline; }
   padding: 28px 26px;
   max-width: 400px;
   width: 100%;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  box-sizing: border-box;
   text-align: center;
   box-shadow: 0 20px 60px rgba(0,0,0,.35);
   animation: adGatePop .35s cubic-bezier(0.34,1.56,0.64,1);
@@ -1000,11 +1006,20 @@ footer a:hover { text-decoration: underline; }
   padding: 1px 6px;
 }
 #ad-gate-ad-container {
-  min-height: 50px;
+  width: 300px;
+  min-height: 250px;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+#ad-gate-ad-container iframe {
+  display: block;
+  width: 300px;
+  height: 250px;
+  max-width: 100%;
+  border: 0;
 }
 
 .ad-gate-progress {
@@ -1059,7 +1074,6 @@ footer a:hover { text-decoration: underline; }
 
 /* ── 3D GALLERY SURFACES ── */
 body {
-  perspective: 1400px;
   background:
     radial-gradient(circle at 12% 8%, rgba(255, 183, 77, .38), transparent 28%),
     radial-gradient(circle at 88% 24%, rgba(255, 111, 55, .16), transparent 30%),
