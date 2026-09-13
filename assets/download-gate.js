@@ -112,13 +112,13 @@
     // Ads enabled
     try {
       var scriptTag = document.createElement('script');
-      scriptTag.innerHTML = "atOptions = {" +
-        "'key' : '0d138aeb5525dbdf1aa7fb2be9127134'," +
-        "'format' : 'iframe'," +
-        "'height' : 300," +
-        "'width' : 160," +
-        "'params' : {}" +
-      "};";
+      scriptTag.innerHTML = `atOptions = {
+        'key' : '0d138aeb5525dbdf1aa7fb2be9127134',
+        'format' : 'iframe',
+        'height' : 300,
+        'width' : 160,
+        'params' : {}
+      };`;
       adContainer.appendChild(scriptTag);
       
       var s = document.createElement('script');
