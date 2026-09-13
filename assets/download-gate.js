@@ -111,9 +111,21 @@
 
     // Ads enabled
     try {
+      // Set up atOptions for download gate ad
+      var atOptionsScript = document.createElement('script');
+      atOptionsScript.textContent = "window.atOptions = {" +
+        "'key' : '0d138aeb5525dbdf1aa7fb2be9127134'," +
+        "'format' : 'iframe'," +
+        "'height' : 300," +
+        "'width' : 160," +
+        "'params' : {}" +
+      "};";
+      adContainer.appendChild(atOptionsScript);
+      
+      // Load the invoke script
       var s = document.createElement('script');
       s.settings = {};
-      s.src = 'https://shameful-farm.com/b/XCV.s/dMGKls0fY/Wzcy/aesmX9/uVZcUGlLkCPjT/cBxAM/TqUg3HOLD-UotQNLzbEAxmNpTEcS4VOIQQ';
+      s.src = 'https://talentpastryadvisedly.com/0d138aeb5525dbdf1aa7fb2be9127134/invoke.js';
       s.async = true;
       s.referrerPolicy = 'no-referrer-when-downgrade';
       s.onload = settle;
