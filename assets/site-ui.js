@@ -77,8 +77,8 @@
       '<div class="movie-promo-poster"><img src="assets/dc-poster.webp" alt="DC movie poster" loading="lazy"></div>' +
       '<div class="movie-promo-body">' +
         '<div class="movie-promo-tag">🔥 Coming Soon</div>' +
-        '<div class="movie-promo-title">Modha rathiri</div>' +
-        '<div class="movie-promo-sub">Rishikanth&amp; Anishma Anilkumar · Dir.Raja Karuppasamy · Music by Bharath Sankar</div>' +
+        '<div class="movie-promo-title">Paradise</div>' +
+        '<div class="movie-promo-sub">Nani&amp; Kayadu Lohar · Dir.Srikanth Odela · Music by Anirudh Ravichander</div>' +
         '<a class="movie-promo-watch" href="https://talentpastryadvisedly.com/a7h79dts?key=5d648872c4d8e9e068cdf95f8562fd0e" target="_blank" rel="noopener noreferrer">▶ Watch Now</a>' +
       '</div>';
     pagWrap.insertAdjacentElement('afterend', el);
