@@ -119,6 +119,10 @@
       card.appendChild(dlLink);
     }
 
+    if (window.TMAdBlock && typeof window.TMAdBlock.applyToCard === 'function') {
+      window.TMAdBlock.applyToCard(card);
+    }
+
     return card;
   }
 
@@ -300,6 +304,11 @@
       actions.appendChild(rm);
 
       card.appendChild(actions);
+
+      if (window.TMAdBlock && typeof window.TMAdBlock.applyToFavCard === 'function') {
+        window.TMAdBlock.applyToFavCard(card);
+      }
+
       grid.appendChild(card);
     });
   }
@@ -358,6 +367,11 @@
       case 'clear-favourites': clearAllFavourites(); break;
       case 'remove-fav': removeFav(el.dataset.id); break;
       case 'toggle-fav': toggleFav(el.dataset.id, el.dataset.title, el.dataset.dl, el); break;
+      case 'retry-adblock':
+        if (window.TMAdBlock && typeof window.TMAdBlock.check === 'function') {
+          window.TMAdBlock.check(true);
+        }
+        break;
       default: break;
     }
   });
